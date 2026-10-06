@@ -3,11 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(RaceUI))]
 [RequireComponent(typeof(Rigidbody))]
 public sealed class Vehicle : MonoBehaviour
 {
     [SerializeField]
     private float torque;
+
+    [SerializeField, Space(5)]
+    private float brakeTorque;
 
     [SerializeField, Space(5)]
     private float maxSpeed;
@@ -18,8 +22,8 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField, Space(5)]
     private AnimationCurve steering;
 
-    [SerializeField, Space(5)]
-    private bool isPlayer;
+    [field: SerializeField, Space(5)]
+    public bool IsPlayer {  get; private set; }
 
     [SerializeField, Space(5)]
     private InputActionAsset inputAction;
@@ -34,6 +38,14 @@ public sealed class Vehicle : MonoBehaviour
 
     [SerializeField, Space(5)]
     private PathFinder pathFinder;
+
+    [SerializeField, Space(5)]
+    private PositioningSystem positioningSystem;
+
+    [SerializeField, Space(5)]
+    private float pathReachDistanceThreshold = 5.0f;
+
+    private RaceUI raceUI;
 
     private float motorTorque = 0.0f;
     private float steeringInput = 0.0f;
@@ -55,19 +67,31 @@ public sealed class Vehicle : MonoBehaviour
 
     private const float SPEED_MULTIPLIER = 3.6f;
 
+    [SerializeField]
     private int currentPathIndex;
+
+    [SerializeField]
+    float distance;
 
     private Vector3 steerVector;
 
+    [SerializeField]
+    private bool isBraking = false;
+
+    public int PathIndex => currentPathIndex;
+    public float Distance => distance;
+
     private void Start()
     {
-        if(isPlayer)
+        if (IsPlayer)
             InitializeInputs();
 
-        if(!isPlayer && pathFinder == null)
-            throw new ArgumentNullException(nameof(pathFinder), "Cannot be null.");
+        if(pathFinder == null)
+            pathFinder = FindObjectOfType<PathFinder>();
 
         carPhysicsBody = GetComponent<Rigidbody>();
+
+        raceUI = GetComponent<RaceUI>();
     }
 
     private void InitializeInputs()
@@ -118,7 +142,7 @@ public sealed class Vehicle : MonoBehaviour
 
     private void Update()
     {
-        if (isPlayer)
+        if (IsPlayer)
         {
             if(speedKPH < maxSpeed)
                 motorTorque = torque * accelerationInputValue;
@@ -127,13 +151,17 @@ public sealed class Vehicle : MonoBehaviour
         }
         else
         {
-            if (speedKPH < maxSpeed)
-                motorTorque = torque;
-            else
-                motorTorque = 0.0f;
-
-            GetNextPathIndex();
+            if(!isBraking)
+            {
+                if (speedKPH < maxSpeed)
+                    motorTorque = torque;
+                else
+                    motorTorque = 0.0f;
+            }
         }
+
+        GetNextPathIndex();
+        UpdateRaceUI();
     }
 
     private void FixedUpdate()
@@ -146,13 +174,28 @@ public sealed class Vehicle : MonoBehaviour
         foreach (Wheel wheel in wheels)
         {
             if(driveType == DriveType.FWD && wheel.Steering)
-                wheel.AddTorque(motorTorque);
+            {
+                if(!isBraking)
+                    wheel.AddTorque(motorTorque);
+                else
+                    wheel.AddBrakeTorque(brakeTorque);
+            }
             else if(driveType == DriveType.RWD && !wheel.Steering)
-                wheel.AddTorque(motorTorque);
+            {
+                if (!isBraking)
+                    wheel.AddTorque(motorTorque);
+                else
+                    wheel.AddBrakeTorque(brakeTorque);
+            }
             else
-                wheel.AddTorque(motorTorque);
+            {
+                if (!isBraking)
+                    wheel.AddTorque(motorTorque);
+                else
+                    wheel.AddBrakeTorque(brakeTorque);
+            }
 
-            if(isPlayer)
+            if (IsPlayer)
                 wheel.Steer(GetSteerAngle());
             else
                 wheel.Steer(GetPathSteerAngle());
@@ -176,15 +219,30 @@ public sealed class Vehicle : MonoBehaviour
 
     private void GetNextPathIndex()
     {
-        float distance = (transform.position - pathFinder.Paths[currentPathIndex].position).magnitude;
 
-        if(distance <= 0.5f)
+        Debug.Log($"~{gameObject.name} current path: {currentPathIndex} of path count: {pathFinder.Paths.Count}");
+
+        distance = (transform.position - pathFinder.Paths[currentPathIndex].position).magnitude;
+
+        if(distance <= pathReachDistanceThreshold)
         {
-            currentPathIndex++;
-
-            if (currentPathIndex >= pathFinder.Paths.Count)
+            if (currentPathIndex < pathFinder.Paths.Count - 1)
+                currentPathIndex++;
+            else
                 currentPathIndex = 0;
         }
+    }
+
+    private void UpdateRaceUI()
+    {
+        if(positioningSystem == null)
+        {
+            Debug.LogError($"Component {nameof(positioningSystem)} cannot be null for: {gameObject.name}.");
+            return;
+        }
+
+        int racePosition = positioningSystem.GetPosition(this);
+        raceUI.DisplayRacePosition(racePosition);
     }
 
     private float GetSteerAngle()
@@ -195,4 +253,14 @@ public sealed class Vehicle : MonoBehaviour
 
     public Vector3 GetMovingDirection()
         => transform.InverseTransformDirection(CarPhysicsBody.velocity);
+
+    public void ApplyAcceleration()
+    {
+        isBraking = false;
+    }
+
+    public void ApplyBrakes()
+    {
+        isBraking = true;
+    }
 }

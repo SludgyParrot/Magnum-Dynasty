@@ -28,6 +28,12 @@ public sealed class CarCameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        UpdateCameraPosition();
+        UpdateCameraFOV();
+    }
+
+    private void UpdateCameraPosition()
+    {
         float carRotationAngle = cameraRotationDelta.y;
         float carHeight = car.transform.position.y + height;
 
@@ -51,7 +57,7 @@ public sealed class CarCameraController : MonoBehaviour
         transform.LookAt(car.transform);
     }
 
-    private void FixedUpdate()
+    private void UpdateCameraFOV()
     {
         var cameraInversedDirection = car.GetMovingDirection();
 
