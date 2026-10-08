@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent (typeof(Camera))]
 public sealed class CarCameraController : MonoBehaviour
@@ -18,13 +19,30 @@ public sealed class CarCameraController : MonoBehaviour
     [SerializeField, Space(5)]
     private float zoomRatio;
 
-     private Camera carCamera;
+    [SerializeField]
+    private InputActionAsset inputAction;
+
+    [SerializeField]
+    private InputActionReference rearViewInput;
+
+    private Camera carCamera;
 
     private Vector3 cameraPositionDelta;
     private Vector3 cameraRotationDelta;
 
+    private bool isRearView;
+
     private void Start()
-        => carCamera = GetComponent<Camera>();
+    {
+        carCamera = GetComponent<Camera>();
+
+        inputAction.Enable();
+        rearViewInput.action.performed += context => RearView(context, true);
+        rearViewInput.action.canceled += context => RearView(context, false);
+    }
+
+    private void RearView(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed)
+        => isRearView = performed;
 
     private void LateUpdate()
     {
@@ -61,7 +79,7 @@ public sealed class CarCameraController : MonoBehaviour
     {
         var cameraInversedDirection = car.GetMovingDirection();
 
-        if(cameraInversedDirection.z < -0.5f)
+        if(cameraInversedDirection.z < -0.5f || isRearView)
         {
             cameraRotationDelta = car.transform.eulerAngles;
             cameraRotationDelta.y -= 180;

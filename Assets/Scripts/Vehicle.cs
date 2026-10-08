@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(RaceUI))]
@@ -31,7 +32,8 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField, Space(5)]
     private InputActionReference accelerationInput, 
         brakeInput,
-        steerInput;
+        steerInput, 
+        heahLightsInput;
 
     [SerializeField, Space(5)]
     private List<Wheel> wheels = new List<Wheel>();
@@ -40,10 +42,22 @@ public sealed class Vehicle : MonoBehaviour
     private PathFinder pathFinder;
 
     [SerializeField, Space(5)]
-    private PositioningSystem positioningSystem;
+    private float pathReachDistanceThreshold = 5.0f;
 
     [SerializeField, Space(5)]
-    private float pathReachDistanceThreshold = 5.0f;
+    private float health;
+
+    [SerializeField, Space(5)]
+    private UnityEvent onMachineGunAppliedEvent;
+
+    [SerializeField, Space(5)]
+    private UnityEvent<int> onMachineGunAmmoAppliedEvent;
+
+    [SerializeField, Space(5)]
+    private UnityEvent<float> onHealthEvent;
+
+    [SerializeField, Space(5)]
+    private UnityEvent<VehicleLightType, bool> onVehicleLightEvent;
 
     private RaceUI raceUI;
 
@@ -56,6 +70,9 @@ public sealed class Vehicle : MonoBehaviour
 
     public Rigidbody CarPhysicsBody => carPhysicsBody;
 
+    [field: SerializeField]
+    public int CurrentLap {  get; private set; }
+
     [SerializeField]
     private float speedKPH;
 
@@ -66,6 +83,8 @@ public sealed class Vehicle : MonoBehaviour
     private float accelerationInputValue = 0;
 
     private const float SPEED_MULTIPLIER = 3.6f;
+
+    private float currentHealth;
 
     [SerializeField]
     private int currentPathIndex;
@@ -79,7 +98,9 @@ public sealed class Vehicle : MonoBehaviour
     private bool isBraking = false;
 
     public int PathIndex => currentPathIndex;
-    public float Distance => distance;
+    public float DistanceToWaypoint => distance;
+
+    private bool lightsOn;
 
     private void Start()
     {
@@ -92,6 +113,11 @@ public sealed class Vehicle : MonoBehaviour
         carPhysicsBody = GetComponent<Rigidbody>();
 
         raceUI = GetComponent<RaceUI>();
+
+        CurrentLap = 1;
+
+        currentHealth = health;
+        onHealthEvent?.Invoke(currentHealth);
     }
 
     private void InitializeInputs()
@@ -116,6 +142,11 @@ public sealed class Vehicle : MonoBehaviour
             steerInput.action.performed += context => Steer(context);
             steerInput.action.canceled += context => Steer(context, false);
         }
+
+        if(heahLightsInput  != null)
+        {
+            heahLightsInput.action.performed += context => ToggleHeadLights(context);
+        }
     }
 
     private void Accelerate(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
@@ -132,6 +163,8 @@ public sealed class Vehicle : MonoBehaviour
             accelerationInputValue = -1.0f;
         else
             accelerationInputValue = 0.0f;
+
+        onVehicleLightEvent?.Invoke(VehicleLightType.Brake, performed);
     }
 
     private void Steer(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
@@ -140,8 +173,16 @@ public sealed class Vehicle : MonoBehaviour
         steeringInput = input.x;
     }
 
+    private void ToggleHeadLights(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
+    {
+        lightsOn = !lightsOn;
+        onVehicleLightEvent?.Invoke(VehicleLightType.Head, lightsOn);
+    }
+
     private void Update()
     {
+        if (currentHealth <= 0) return;
+
         if (IsPlayer)
         {
             if(speedKPH < maxSpeed)
@@ -220,8 +261,6 @@ public sealed class Vehicle : MonoBehaviour
     private void GetNextPathIndex()
     {
 
-        Debug.Log($"~{gameObject.name} current path: {currentPathIndex} of path count: {pathFinder.Paths.Count}");
-
         distance = (transform.position - pathFinder.Paths[currentPathIndex].position).magnitude;
 
         if(distance <= pathReachDistanceThreshold)
@@ -235,13 +274,7 @@ public sealed class Vehicle : MonoBehaviour
 
     private void UpdateRaceUI()
     {
-        if(positioningSystem == null)
-        {
-            Debug.LogError($"Component {nameof(positioningSystem)} cannot be null for: {gameObject.name}.");
-            return;
-        }
-
-        int racePosition = positioningSystem.GetPosition(this);
+        int racePosition = RaceManager.Instance.GetRacePosition(this);
         raceUI.DisplayRacePosition(racePosition);
     }
 
@@ -262,5 +295,35 @@ public sealed class Vehicle : MonoBehaviour
     public void ApplyBrakes()
     {
         isBraking = true;
+    }
+
+    public void IncrementLaps()
+    {
+        if(CurrentLap < RaceManager.Instance.TotalLaps)
+            CurrentLap++;
+    }
+
+    public void ApplyMisteryBox(MisteryBoxType type, int value)
+    {
+        switch(type)
+        {
+            case MisteryBoxType.MachineGun:
+                onMachineGunAppliedEvent?.Invoke();
+                break;
+            case MisteryBoxType.Ammo:
+                onMachineGunAmmoAppliedEvent?.Invoke(value);
+                break;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if(currentHealth > 0.0f)
+            currentHealth -= damage;
+        else
+            currentHealth = 0.0f;
+
+        float healthValue = currentHealth / 100.0f;
+        onHealthEvent?.Invoke(healthValue);
     }
 }
