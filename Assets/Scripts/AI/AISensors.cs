@@ -64,9 +64,10 @@ public sealed class AISensors : MonoBehaviour
             Sensor sensor = sensors[i];
 
             var detectionResults = sensor.GetDetectionResults();
-            if (!detectionResults.detected) continue;
-            Debug.Log($"~Sensor: {sensor.SensorType} has detected collision with: {detectionResults.hitInfo.transform.name}");
-            onSensorDetectedEvent?.Invoke(sensor.SensorType);
+            if (detectionResults.detected)
+                onSensorDetectedEvent?.Invoke(sensor.SensorType);
+            else
+                onSensorDetectedEvent?.Invoke(SensorType.None);
         }
     }
 }

@@ -23,6 +23,9 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField, Space(5)]
     private AnimationCurve steering;
 
+    [SerializeField, Space(5)]
+    private float sensorDetectionSteerSensitivity = 0.5f;
+
     [field: SerializeField, Space(5)]
     public bool IsPlayer {  get; private set; }
 
@@ -101,6 +104,9 @@ public sealed class Vehicle : MonoBehaviour
     public float DistanceToWaypoint => distance;
 
     private bool lightsOn;
+
+    private int sensorSteerDetectionflag;
+    private float sensorSteerSensitivity;
 
     private void Start()
     {
@@ -192,7 +198,9 @@ public sealed class Vehicle : MonoBehaviour
         }
         else
         {
-            if(!isBraking)
+            if (sensorSteerDetectionflag != 0) return;
+
+            if (!isBraking)
             {
                 if (speedKPH < maxSpeed)
                     motorTorque = torque;
@@ -239,7 +247,12 @@ public sealed class Vehicle : MonoBehaviour
             if (IsPlayer)
                 wheel.Steer(GetSteerAngle());
             else
-                wheel.Steer(GetPathSteerAngle());
+            {
+                if(sensorSteerDetectionflag == 0)
+                    wheel.Steer(GetPathSteerAngle());
+                else
+                    wheel.Steer(GetSensorDetectionSteerAngle());
+            }
 
             wheel.UpdateWheel();
         }
@@ -256,6 +269,12 @@ public sealed class Vehicle : MonoBehaviour
         var steerAngle = 1 * steering.Evaluate(CurrentSpeed);
         var newSteerAngle = steerAngle * (inversedSteerVector.x / inversedSteerVector.magnitude);
         return newSteerAngle;
+    }
+
+    private float GetSensorDetectionSteerAngle()
+    {
+        var steerAngle = 1 * steering.Evaluate(CurrentSpeed);
+        return steerAngle * sensorSteerSensitivity;
     }
 
     private void GetNextPathIndex()
@@ -333,6 +352,25 @@ public sealed class Vehicle : MonoBehaviour
 
     public void OnSensorDetection(SensorType sensor)
     {
-        Debug.Log($"~On sensor detected: {sensor} and send to vehicle.");
+        if(IsPlayer) return;
+
+        sensorSteerDetectionflag = 0;
+
+        switch (sensor)
+        {
+            case SensorType.LeftSideSensor:
+                sensorSteerSensitivity += sensorDetectionSteerSensitivity;
+                sensorSteerDetectionflag++;
+                break;
+            case SensorType.RightSideSensor:
+                sensorSteerSensitivity -= sensorDetectionSteerSensitivity;
+                sensorSteerDetectionflag++;
+                break;
+            default:
+                sensorSteerSensitivity = 0.0f;
+                break;
+        }
+
+        Debug.Log($"~On sensor detected: {sensor} and send to vehicle with flag: {sensorSteerDetectionflag} and sensitivity: {sensorSteerSensitivity}.");
     }
 }
