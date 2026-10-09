@@ -43,3 +43,15 @@ public enum VehicleLightType
    Parking
 
 }
+
+public enum SensorType
+{
+    None,
+    FrontMidSensor,
+    FrontLeftSensor,
+    FrontRightSensor,
+    FrontLeftAngledSensor,
+    FrontRightAngledSensor,
+    LeftSideSensor,
+    RightSideSensor
+}

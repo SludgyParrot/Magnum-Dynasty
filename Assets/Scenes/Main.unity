@@ -1268,6 +1268,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1283074449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &173789534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173789527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2626d4c0522cc4f8f75d4eff3eedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensors: []
+  onSensorDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &212051439
 GameObject:
   m_ObjectHideFlags: 0
@@ -2681,6 +2697,37 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
+--- !u!1 &422213392
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422213393}
+  m_Layer: 6
+  m_Name: __Front Left Angled Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422213393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422213392}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
+  m_LocalPosition: {x: -0.743, y: 0, z: 2.285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!4 &443483836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -7872855388333474398, guid: f5dfdaa5fe62a4746bb7eead0126afe5,
@@ -2777,6 +2824,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &494163056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494163057}
+  m_Layer: 6
+  m_Name: __Front Mid Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &494163057
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494163056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2.285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494897399 stripped
 GameObject:
@@ -4393,6 +4471,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 784691556}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5dfdaa5fe62a4746bb7eead0126afe5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 784691562}
   m_SourcePrefab: {fileID: 100100000, guid: f5dfdaa5fe62a4746bb7eead0126afe5, type: 3}
 --- !u!1 &784691555 stripped
 GameObject:
@@ -4619,6 +4701,22 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 770685619}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &784691562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784691555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2626d4c0522cc4f8f75d4eff3eedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensors: []
+  onSensorDetectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &817224523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4713,6 +4811,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 817224523}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &820923912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820923913}
+  m_Layer: 6
+  m_Name: __Front Right Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &820923913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820923912}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.743, y: 0, z: 2.285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &822801560 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -4959,7 +5088,7 @@ GameObject:
   - component: {fileID: 874546262}
   - component: {fileID: 874546261}
   - component: {fileID: 874546260}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5640,6 +5769,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933915104}
   m_CullTransparentMesh: 1
+--- !u!1 &940193359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940193360}
+  m_Layer: 6
+  m_Name: __Left Side Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &940193360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940193359}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.85, y: 0, z: -0.31400037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &969714144
 GameObject:
   m_ObjectHideFlags: 0
@@ -6076,6 +6236,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1672803957}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: f5dfdaa5fe62a4746bb7eead0126afe5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1596508121}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5dfdaa5fe62a4746bb7eead0126afe5,
         type: 3}
@@ -6097,6 +6261,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1021328334}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5dfdaa5fe62a4746bb7eead0126afe5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1021328335}
   m_SourcePrefab: {fileID: 100100000, guid: f5dfdaa5fe62a4746bb7eead0126afe5, type: 3}
 --- !u!1 &1021328324 stripped
 GameObject:
@@ -6347,6 +6515,90 @@ MonoBehaviour:
   - name: Signal Right
     lightMaterial: {fileID: 2100000, guid: 99dea6c89a6b5ff409a37703816dc957, type: 2}
     lightType: 5
+--- !u!114 &1021328335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021328324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d2626d4c0522cc4f8f75d4eff3eedb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sensors:
+  - name: Front Mid Sensor
+    origin: {fileID: 494163057}
+    length: 10
+    sensorType: 1
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  - name: Front Left Sensor
+    origin: {fileID: 1887146549}
+    length: 10
+    sensorType: 2
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  - name: Front Left Angled Sensor
+    origin: {fileID: 422213393}
+    length: 10
+    sensorType: 4
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  - name: Front Right Sensor
+    origin: {fileID: 820923913}
+    length: 10
+    sensorType: 3
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  - name: Front Right Angled Sensor
+    origin: {fileID: 1081451234}
+    length: 10
+    sensorType: 5
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  - name: Left Side Sensor
+    origin: {fileID: 940193360}
+    length: 10
+    sensorType: 6
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  - name: Right Side Sensor
+    origin: {fileID: 1983642312}
+    length: 10
+    sensorType: 7
+    sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
+    interactableLayer:
+      serializedVersion: 2
+      m_Bits: 448
+  onSensorDetectedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1021328331}
+        m_TargetAssemblyTypeName: Vehicle, Assembly-CSharp
+        m_MethodName: OnSensorDetection
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1031521771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,6 +6951,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 789666880ec257c4a8daacb1857d6e89, type: 3}
+--- !u!1 &1081451233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1081451234}
+  m_Layer: 6
+  m_Name: __Front Right Angled Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1081451234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081451233}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0.743, y: 0, z: 2.285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
+  m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
 --- !u!1 &1096429073
 GameObject:
   m_ObjectHideFlags: 0
@@ -7980,6 +8263,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 173789528}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f5dfdaa5fe62a4746bb7eead0126afe5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 173789534}
   m_SourcePrefab: {fileID: 100100000, guid: f5dfdaa5fe62a4746bb7eead0126afe5, type: 3}
 --- !u!1 &1299964053
 GameObject:
@@ -9785,6 +10072,44 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 789666880ec257c4a8daacb1857d6e89, type: 3}
+--- !u!1 &1596508120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596508121}
+  m_Layer: 6
+  m_Name: ':: Sensors'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596508121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596508120}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 494163057}
+  - {fileID: 1887146549}
+  - {fileID: 422213393}
+  - {fileID: 820923913}
+  - {fileID: 1081451234}
+  - {fileID: 940193360}
+  - {fileID: 1983642312}
+  m_Father: {fileID: 1021328326}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1603610418
 GameObject:
   m_ObjectHideFlags: 0
@@ -11445,6 +11770,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878689545}
   m_CullTransparentMesh: 1
+--- !u!1 &1887146548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887146549}
+  m_Layer: 6
+  m_Name: __Front Left Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1887146549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887146548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.743, y: 0, z: 2.285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1908919048
 GameObject:
   m_ObjectHideFlags: 0
@@ -11802,6 +12158,37 @@ Transform:
   - {fileID: 1701084489}
   m_Father: {fileID: 1378213277}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1983642311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1983642312}
+  m_Layer: 6
+  m_Name: __Right Side Sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1983642312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983642311}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.85, y: 0, z: -0.314}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596508121}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1987290453
 GameObject:
   m_ObjectHideFlags: 0

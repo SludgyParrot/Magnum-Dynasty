@@ -321,9 +321,18 @@ public sealed class Vehicle : MonoBehaviour
         if(currentHealth > 0.0f)
             currentHealth -= damage;
         else
+        {
             currentHealth = 0.0f;
+            RaceManager.Instance.Vehicles.Remove(this);
+        }
 
         float healthValue = currentHealth / 100.0f;
         onHealthEvent?.Invoke(healthValue);
+
+    }
+
+    public void OnSensorDetection(SensorType sensor)
+    {
+        Debug.Log($"~On sensor detected: {sensor} and send to vehicle.");
     }
 }

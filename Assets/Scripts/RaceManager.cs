@@ -12,6 +12,8 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
     [field: SerializeField, Space(5)]
     public int TotalLaps { get; private set; }
 
+    public List<Vehicle> Vehicles => vehicles;
+
     private void Start()
     {
         if(vehicles.Count == 0)
