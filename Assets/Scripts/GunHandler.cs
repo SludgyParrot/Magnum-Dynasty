@@ -1,9 +1,9 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public sealed class GunHandler : MonoBehaviour
 {
     [SerializeField]
@@ -48,6 +48,8 @@ public sealed class GunHandler : MonoBehaviour
 
     public string AmmoCountString => $"Ammo {ammoCount}/{maxAmmoCount}";
 
+    private AudioSource gunSoundFxPlayer;
+
     private void Start()
     {
         inputAction.Enable();
@@ -55,6 +57,7 @@ public sealed class GunHandler : MonoBehaviour
         shootInput.action.performed += context => OnShootInput(context, true);
         shootInput.action.canceled += context => OnShootInput(context, false);
 
+        gunSoundFxPlayer = GetComponent<AudioSource>();
         gunAnimator = GetComponent<Animator>();
 
         onAmmoCountEvent?.Invoke(AmmoCountString);
@@ -83,6 +86,7 @@ public sealed class GunHandler : MonoBehaviour
         }
 
         gunAnimator.SetTrigger("Shoot");
+        gunSoundFxPlayer.Play();
 
         if (Physics.Raycast(gunNozzle.position, gunNozzle.forward, out RaycastHit hitInfo, shootRange, shootableLayer))
         {

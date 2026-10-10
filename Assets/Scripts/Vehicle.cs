@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(RaceUI))]
+[RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody))]
 public sealed class Vehicle : MonoBehaviour
 {
@@ -114,6 +115,8 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField]
     private float remainingReverseTime;
 
+    private AudioSource engineSoundPlayer;
+
     private void Start()
     {
         if (IsPlayer)
@@ -121,6 +124,8 @@ public sealed class Vehicle : MonoBehaviour
 
         if(pathFinder == null)
             pathFinder = FindObjectOfType<PathFinder>();
+
+        engineSoundPlayer = GetComponent<AudioSource>();
 
         carPhysicsBody = GetComponent<Rigidbody>();
 
@@ -223,6 +228,7 @@ public sealed class Vehicle : MonoBehaviour
             }
         }
 
+        //PlayEngineSound();
         GetNextPathIndex();
         UpdateRaceUI();
     }
@@ -416,6 +422,11 @@ public sealed class Vehicle : MonoBehaviour
                 break;
         }
 
-        Debug.Log($"~On sensor detected: {sensor} and send to vehicle with avoiding: {avoidingObstacle} and sensitivity: {sensorSteerAngle}.");
+        // Debug.Log($"~On sensor detected: {sensor} and send to vehicle with avoiding: {avoidingObstacle} and sensitivity: {sensorSteerAngle}.");
+    }
+
+    private void PlayEngineSound()
+    {
+        engineSoundPlayer.pitch = speedKPH / maxSpeed;
     }
 }

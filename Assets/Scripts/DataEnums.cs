@@ -55,3 +55,19 @@ public enum SensorType
     LeftSideSensor,
     RightSideSensor
 }
+
+public enum AudioType
+{
+    Ambience,
+    Environment,
+    Music,
+    Fx
+}
+
+public enum MusicGroupType
+{
+    RapMusic,
+    HouseMusic,
+    KwaitoMusic,
+    RockMusic
+}
