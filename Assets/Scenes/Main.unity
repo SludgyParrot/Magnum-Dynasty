@@ -6617,6 +6617,8 @@ MonoBehaviour:
   currentPathIndex: 0
   distance: 0
   isBraking: 0
+  reverseDuration: 0
+  remainingReverseTime: 0
 --- !u!54 &173789531
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14420,6 +14422,139 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4676841020648865891, guid: 789666880ec257c4a8daacb1857d6e89, type: 3}
+--- !u!1 &527073339
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 527073344}
+  - component: {fileID: 527073343}
+  - component: {fileID: 527073342}
+  - component: {fileID: 527073341}
+  - component: {fileID: 527073340}
+  m_Layer: 6
+  m_Name: Cube (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &527073340
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073339}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &527073341
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073339}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &527073342
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073339}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &527073343
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073339}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &527073344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 527073339}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.5, y: 2.26, z: -105.6}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &528805957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4525267771490889818, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -15728,7 +15863,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Left Sensor
     origin: {fileID: 288544534}
-    length: 10
+    length: 5
     sensorType: 2
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -15736,7 +15871,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Left Angled Sensor
     origin: {fileID: 1776634505}
-    length: 10
+    length: 5
     sensorType: 4
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -15744,7 +15879,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Right Sensor
     origin: {fileID: 2103420974}
-    length: 10
+    length: 5
     sensorType: 3
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -15752,7 +15887,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Right Angled Sensor
     origin: {fileID: 569596634}
-    length: 10
+    length: 5
     sensorType: 5
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -15760,7 +15895,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Left Side Sensor
     origin: {fileID: 1725157279}
-    length: 10
+    length: 2.5
     sensorType: 6
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -15768,7 +15903,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Right Side Sensor
     origin: {fileID: 905194318}
-    length: 10
+    length: 2.5
     sensorType: 7
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -15955,6 +16090,8 @@ MonoBehaviour:
   currentPathIndex: 0
   distance: 0
   isBraking: 0
+  reverseDuration: 2.5
+  remainingReverseTime: 0
 --- !u!54 &575340780
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -22701,6 +22838,8 @@ MonoBehaviour:
   currentPathIndex: 0
   distance: 0
   isBraking: 0
+  reverseDuration: 0
+  remainingReverseTime: 0
 --- !u!54 &784691559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24086,7 +24225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &874546260
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24194,7 +24333,7 @@ Transform:
   m_GameObject: {fileID: 874546259}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.26, y: 2.26, z: -13.7}
+  m_LocalPosition: {x: 16, y: 2.26, z: -13.7}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29445,6 +29584,8 @@ MonoBehaviour:
   currentPathIndex: 0
   distance: 0
   isBraking: 0
+  reverseDuration: 0
+  remainingReverseTime: 0
 --- !u!54 &1021328332
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44743,7 +44884,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Left Sensor
     origin: {fileID: 1850577893}
-    length: 10
+    length: 5
     sensorType: 2
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -44751,7 +44892,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Left Angled Sensor
     origin: {fileID: 1344113800}
-    length: 10
+    length: 5
     sensorType: 4
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -44759,7 +44900,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Right Sensor
     origin: {fileID: 744909998}
-    length: 10
+    length: 5
     sensorType: 3
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -44767,7 +44908,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Front Right Angled Sensor
     origin: {fileID: 1897747541}
-    length: 10
+    length: 5
     sensorType: 5
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -44775,7 +44916,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Left Side Sensor
     origin: {fileID: 192324380}
-    length: 10
+    length: 2.5
     sensorType: 6
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -44783,7 +44924,7 @@ MonoBehaviour:
       m_Bits: 448
   - name: Right Side Sensor
     origin: {fileID: 1377157701}
-    length: 10
+    length: 2.5
     sensorType: 7
     sensorColor: {r: 1, g: 0.7769345, b: 0, a: 1}
     interactableLayer:
@@ -44970,6 +45111,8 @@ MonoBehaviour:
   currentPathIndex: 0
   distance: 0
   isBraking: 0
+  reverseDuration: 2.5
+  remainingReverseTime: 0
 --- !u!54 &1691645566
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -54283,6 +54426,139 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3087476784830194312, guid: 789666880ec257c4a8daacb1857d6e89, type: 3}
+--- !u!1 &2052122378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2052122383}
+  - component: {fileID: 2052122382}
+  - component: {fileID: 2052122381}
+  - component: {fileID: 2052122380}
+  - component: {fileID: 2052122379}
+  m_Layer: 6
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &2052122379
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052122378}
+  serializedVersion: 4
+  m_Mass: 5
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &2052122380
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052122378}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &2052122381
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052122378}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2052122382
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052122378}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2052122383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052122378}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.5, y: 2.26, z: -55.1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2053338025 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8608697869550530911, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -55952,3 +56228,5 @@ SceneRoots:
   - {fileID: 574607523}
   - {fileID: 2090864498}
   - {fileID: 874546264}
+  - {fileID: 2052122383}
+  - {fileID: 527073344}

@@ -105,8 +105,14 @@ public sealed class Vehicle : MonoBehaviour
 
     private bool lightsOn;
 
-    private int sensorSteerDetectionflag;
-    private float sensorSteerSensitivity;
+    private bool avoidingObstacle;
+    private float sensorSteerAngle;
+
+    [SerializeField, Space(5)]
+    private float reverseDuration;
+
+    [SerializeField]
+    private float remainingReverseTime;
 
     private void Start()
     {
@@ -198,14 +204,22 @@ public sealed class Vehicle : MonoBehaviour
         }
         else
         {
-            if (sensorSteerDetectionflag != 0) return;
+            if (avoidingObstacle) return;
 
             if (!isBraking)
             {
-                if (speedKPH < maxSpeed)
-                    motorTorque = torque;
+                if(remainingReverseTime <= 0.0f)
+                {
+                    if (speedKPH < maxSpeed)
+                        motorTorque = torque;
+                    else
+                        motorTorque = 0.0f;
+                }
                 else
-                    motorTorque = 0.0f;
+                {
+                    motorTorque = -torque;
+                    remainingReverseTime -= 1 * Time.deltaTime;
+                }
             }
         }
 
@@ -248,10 +262,10 @@ public sealed class Vehicle : MonoBehaviour
                 wheel.Steer(GetSteerAngle());
             else
             {
-                if(sensorSteerDetectionflag == 0)
-                    wheel.Steer(GetPathSteerAngle());
+                if (!avoidingObstacle)
+                    wheel.Steer(remainingReverseTime > 0.0f ? -GetPathSteerAngle() : GetPathSteerAngle());
                 else
-                    wheel.Steer(GetSensorDetectionSteerAngle());
+                    wheel.Steer(remainingReverseTime > 0.0f? -sensorSteerAngle: sensorSteerAngle);
             }
 
             wheel.UpdateWheel();
@@ -269,12 +283,6 @@ public sealed class Vehicle : MonoBehaviour
         var steerAngle = 1 * steering.Evaluate(CurrentSpeed);
         var newSteerAngle = steerAngle * (inversedSteerVector.x / inversedSteerVector.magnitude);
         return newSteerAngle;
-    }
-
-    private float GetSensorDetectionSteerAngle()
-    {
-        var steerAngle = 1 * steering.Evaluate(CurrentSpeed);
-        return steerAngle * sensorSteerSensitivity;
     }
 
     private void GetNextPathIndex()
@@ -350,27 +358,64 @@ public sealed class Vehicle : MonoBehaviour
 
     }
 
-    public void OnSensorDetection(SensorType sensor)
+    public void OnSensorDetection(SensorType sensor, RaycastHit hitInfo)
     {
         if(IsPlayer) return;
 
-        sensorSteerDetectionflag = 0;
+        avoidingObstacle = false;
 
         switch (sensor)
         {
             case SensorType.LeftSideSensor:
-                sensorSteerSensitivity += sensorDetectionSteerSensitivity;
-                sensorSteerDetectionflag++;
+                float leftSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                sensorSteerAngle += leftSteerAngle * 0.5f;
+                avoidingObstacle = true;
                 break;
             case SensorType.RightSideSensor:
-                sensorSteerSensitivity -= sensorDetectionSteerSensitivity;
-                sensorSteerDetectionflag++;
+                float rightSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                sensorSteerAngle -= rightSteerAngle * 0.5f;
+                avoidingObstacle = true;
+                break;
+            case SensorType.FrontLeftAngledSensor:
+                float leftAngledSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                sensorSteerAngle += leftAngledSteerAngle * 0.8f;
+                avoidingObstacle = true;
+                break;
+            case SensorType.FrontRightAngledSensor:
+                float rightAngledSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                sensorSteerAngle -= rightAngledSteerAngle * 0.8f;
+                avoidingObstacle = true;
+                break;
+            case SensorType.FrontLeftSensor:
+                float frontLeftSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                sensorSteerAngle += frontLeftSteerAngle * 0.5f;
+                if (speedKPH <= 1)
+                    remainingReverseTime = reverseDuration;
+                avoidingObstacle = true;
+                break;
+            case SensorType.FrontRightSensor:
+                float frontRightSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                sensorSteerAngle -= frontRightSteerAngle * 0.5f;
+                if (speedKPH <= 1)
+                    remainingReverseTime = reverseDuration;
+                avoidingObstacle = true;
+                break;
+            case SensorType.FrontMidSensor:
+                float currentSteerAngle = 1 * steering.Evaluate(CurrentSpeed);
+                if (hitInfo.normal.x < 0)
+                    sensorSteerAngle -= currentSteerAngle * 0.5f;
+                else
+                    sensorSteerAngle += currentSteerAngle * 0.5f;
+
+                if (speedKPH <= 1)
+                    remainingReverseTime = reverseDuration;
+                avoidingObstacle = true;
                 break;
             default:
-                sensorSteerSensitivity = 0.0f;
+                sensorSteerAngle = 0.0f;
                 break;
         }
 
-        Debug.Log($"~On sensor detected: {sensor} and send to vehicle with flag: {sensorSteerDetectionflag} and sensitivity: {sensorSteerSensitivity}.");
+        Debug.Log($"~On sensor detected: {sensor} and send to vehicle with avoiding: {avoidingObstacle} and sensitivity: {sensorSteerAngle}.");
     }
 }

@@ -44,7 +44,7 @@ public sealed class AISensors : MonoBehaviour
         new List<Sensor>();
 
     [SerializeField, Space(5)]
-    private UnityEvent<SensorType> onSensorDetectedEvent;
+    private UnityEvent<SensorType, RaycastHit> onSensorDetectedEvent;
 
     private bool hasSensors;
 
@@ -65,9 +65,9 @@ public sealed class AISensors : MonoBehaviour
 
             var detectionResults = sensor.GetDetectionResults();
             if (detectionResults.detected)
-                onSensorDetectedEvent?.Invoke(sensor.SensorType);
+                onSensorDetectedEvent?.Invoke(sensor.SensorType, detectionResults.hitInfo);
             else
-                onSensorDetectedEvent?.Invoke(SensorType.None);
+                onSensorDetectedEvent?.Invoke(SensorType.None, detectionResults.hitInfo);
         }
     }
 }
