@@ -166,7 +166,7 @@
                 {
                     "name": "",
                     "id": "7b24cc35-6e93-4110-8b4e-0414347b331b",
-                    "path": "<Gamepad>/leftShoulder",
+                    "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -188,7 +188,7 @@
                 {
                     "name": "",
                     "id": "8da2ce3f-cc44-4570-9267-2f540d240f49",
-                    "path": "<Gamepad>/buttonNorth",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -322,6 +322,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "Previous Song",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Weapon Wheel",
+            "id": "1aca9636-72d8-4a11-8f7f-900a849e3776",
+            "actions": [
+                {
+                    "name": "Scroll Left",
+                    "type": "Button",
+                    "id": "3a92c84c-d23c-49e7-817e-4d4ca37dbb2a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Scroll Right",
+                    "type": "Button",
+                    "id": "7a6420a9-c3d8-4101-804a-14db09999aeb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b2ace313-29b2-4423-bceb-abd3ca1eaa05",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4000883b-f9fc-450a-8805-61e3ba0f2ca1",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll Right",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
