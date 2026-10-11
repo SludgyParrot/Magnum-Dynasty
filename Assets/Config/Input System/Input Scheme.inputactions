@@ -56,7 +56,7 @@
                 {
                     "name": "",
                     "id": "a9343fbc-7c64-4005-b11e-6b7a99952de7",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Gamepad>/rightTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Vehicle",
@@ -236,7 +236,7 @@
                 {
                     "name": "",
                     "id": "73ee1440-3648-4c77-8387-553dfe15d0b6",
-                    "path": "<Gamepad>/rightTrigger",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Vehicle",

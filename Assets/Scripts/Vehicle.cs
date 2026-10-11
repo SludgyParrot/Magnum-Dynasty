@@ -4,6 +4,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
+[Serializable]
+public sealed class Gear
+{
+    [SerializeField]
+    private string name;
+
+    [SerializeField, Space(5)]
+    private float gearSpeed;
+
+    public float GearSpeed => gearSpeed;
+}
+
 [RequireComponent(typeof(RaceUI))]
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Rigidbody))]
@@ -17,6 +29,9 @@ public sealed class Vehicle : MonoBehaviour
 
     [SerializeField, Space(5)]
     private float maxSpeed;
+
+    [SerializeField, Space(5)]
+    private Gear[] gears;
 
     [SerializeField, Space(5)]
     private DriveType driveType;
@@ -228,7 +243,7 @@ public sealed class Vehicle : MonoBehaviour
             }
         }
 
-        //PlayEngineSound();
+        PlayEngineSound();
         GetNextPathIndex();
         UpdateRaceUI();
     }
@@ -427,6 +442,24 @@ public sealed class Vehicle : MonoBehaviour
 
     private void PlayEngineSound()
     {
-        engineSoundPlayer.pitch = speedKPH / maxSpeed;
+        if(gears.Length == 0) return;
+
+        for(int i = 0; i < gears.Length; i++)
+        {
+            if (gears[i].GearSpeed > speedKPH) break;
+
+            float minGearSpeed = 0.0f;
+            float maxGearSpeed = 0.0f;
+
+            if(i == 0)
+                minGearSpeed = 0.0f;
+            else
+                minGearSpeed = gears[i - 1].GearSpeed;
+
+            maxGearSpeed = gears[i].GearSpeed;
+
+            float engineRPM = (currentSpeed - minGearSpeed / (maxGearSpeed - minGearSpeed)) / maxSpeed ;
+            engineSoundPlayer.pitch = engineRPM + 1;
+        }
     }
 }
