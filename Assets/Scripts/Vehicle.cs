@@ -78,6 +78,8 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField, Space(5)]
     private UnityEvent<VehicleLightType, bool> onVehicleLightEvent;
 
+    private UnityEvent<string, float> onSpeedOMeterValueChangedEvent;
+
     private RaceUI raceUI;
 
     private float motorTorque = 0.0f;
@@ -221,6 +223,8 @@ public sealed class Vehicle : MonoBehaviour
                 motorTorque = torque * accelerationInputValue;
             else
                 motorTorque = 0.0f;
+
+            EventsManager.Instance.OnSpeedOMeterValueChanged?.Invoke(speedKPH, maxSpeed);
         }
         else
         {

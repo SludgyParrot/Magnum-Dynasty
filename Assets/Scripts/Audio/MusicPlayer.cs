@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 
 [Serializable]
 public sealed class MusicGroup
@@ -69,10 +70,23 @@ public sealed class MusicPlayer : MonoBehaviour
     private float autoPlayDelayTime;
 
     [SerializeField, Space(5)]
+    private InputActionAsset inputAction;
+
+    [SerializeField, Space(5)]
+    private InputActionReference nextMusicInput, 
+        prevMusicInput;
+
+    [SerializeField, Space(5)]
     private UnityEvent<MusicConfig> onSongStartedEvent, 
         onSongCompletedEvent;
 
    public MusicGroup CurrentMusicGroup { get; private set; }
+
+    private MusicConfig currentMusic,
+        previousMusic;
+
+    private Stack<MusicConfig> playedMusic = 
+        new Stack<MusicConfig>();
 
     private void OnEnable()
     {
@@ -88,12 +102,82 @@ public sealed class MusicPlayer : MonoBehaviour
 
     private void Start()
     {
+        if(inputAction != null)
+        {
+            inputAction.Enable();
+
+            if(nextMusicInput != null)
+                nextMusicInput.action.performed += PlayNextSong;
+
+            if(prevMusicInput != null)
+                prevMusicInput.action.performed += PlayePreviousSong;
+        }
+
         if (!autoPlay) return;
         Invoke("Initialize", autoPlayDelayTime);
     }
 
+    private void PlayNextSong(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        StopMusic();
+        playedMusic.Push(currentMusic);
+        PlayMusic(CurrentMusicGroup.GetSong());
+    }
+
+    private void PlayePreviousSong(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+    {
+        StopMusic();
+
+        var previousMusicResults = GetPreviousMusic();
+
+        if(!string.IsNullOrWhiteSpace(previousMusicResults.errorMessage))
+        {
+            Debug.LogError(previousMusicResults.errorMessage);
+            return;
+        }
+
+        PlayMusic(previousMusicResults.music);
+    }
+
     private void Initialize()
         => PlayMusic(currentGroup);
+
+    private void OnSongStartedEvent(AudioType player, AudioConfig config)
+    {
+        if (player != AudioType.Music) return;
+
+        if (config is MusicConfig music)
+        {
+            if (playedMusic.Count == 0)
+                playedMusic.Push(music);
+
+            currentMusic = music;
+            onSongStartedEvent?.Invoke(music);
+        }
+    }
+
+    private void OnSongCompletedEvent(AudioType player, AudioConfig config)
+    {
+        if (player != AudioType.Music) return;
+
+        if (config is MusicConfig music)
+        {
+            playedMusic.Push(music);
+            AudioManager.Instance.PlayAudio(CurrentMusicGroup.GetSong());
+        }
+    }
+
+    private (MusicConfig music, string errorMessage) GetPreviousMusic()
+    {
+        if(playedMusic.Count > 0)
+            previousMusic = playedMusic.Pop();
+
+        if(previousMusic == null)
+            previousMusic = CurrentMusicGroup.Music.FirstOrDefault();
+
+        string errorMessage = previousMusic == null? $"{nameof(previousMusic)} cannot be null." : string.Empty;
+        return (previousMusic, errorMessage);
+    }
 
     public void PlayMusic(MusicGroupType groupType)
     {
@@ -108,24 +192,14 @@ public sealed class MusicPlayer : MonoBehaviour
         }
 
         CurrentMusicGroup = groupResults.group;
-        AudioManager.Instance.PlayAudio(CurrentMusicGroup.GetSong());
+        PlayMusic(CurrentMusicGroup.GetSong());
     }
 
-    private void OnSongStartedEvent(AudioType player, AudioConfig config)
-    {
-        if (player != AudioType.Music) return;
+    public void PlayMusic(MusicConfig Config)
+        => AudioManager.Instance.PlayAudio(Config);
 
-        if (config is MusicConfig music)
-            onSongStartedEvent?.Invoke(music);
-    }
-
-    private void OnSongCompletedEvent(AudioType player, AudioConfig config)
-    {
-        if (player != AudioType.Music) return;
-
-        if (config is MusicConfig music)
-            AudioManager.Instance.PlayAudio(CurrentMusicGroup.GetSong());
-    }
+    public void StopMusic()
+        => AudioManager.Instance.StopAudio(AudioType.Music);
 
     public (MusicGroup group, string errorMessage) GetMusicGroup(MusicGroupType groupType)
     {

@@ -278,6 +278,54 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Music",
+            "id": "c7e8eae6-6a29-42ee-a17e-e60d1443515a",
+            "actions": [
+                {
+                    "name": "Next Song",
+                    "type": "Button",
+                    "id": "8e4268fd-e3c3-4bf4-87f2-30fd53159d27",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Previous Song",
+                    "type": "Button",
+                    "id": "4ea82de7-583f-43fd-9510-18d24640e58d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ef87a733-fcc7-440f-a834-fcd6157606df",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next Song",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "56ee7fcb-a656-44ed-a98c-b3c1fbd011db",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Previous Song",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

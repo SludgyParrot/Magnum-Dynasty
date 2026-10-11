@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -36,6 +37,25 @@ public sealed class AudioManager : SingletonInstance<AudioManager>
         }
 
         playerResults.player.Play(config);
+    }
+
+    public void StopAudio()
+    {
+        foreach (var player in audioPlayers)
+            StopAudio(player.Player);
+    }
+
+    public void StopAudio(AudioType player)
+    {
+        var playerResults = GetAudioPlayer(player);
+
+        if (!string.IsNullOrWhiteSpace(playerResults.errorMessage))
+        {
+            Debug.LogError(playerResults.errorMessage);
+            return;
+        }
+
+        playerResults.player.Stop();
     }
 
     public (AudioPlayer player, string errorMessage) GetAudioPlayer(AudioType player)

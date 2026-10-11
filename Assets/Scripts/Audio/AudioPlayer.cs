@@ -28,6 +28,8 @@ public sealed class AudioPlayer : MonoBehaviour
 
     public AudioType Player => player;
 
+    private bool wasPlayerStop;
+
     public async void Play(AudioConfig config)
     {
         PlayerAudioSource.clip = config.Clip;
@@ -43,7 +45,15 @@ public sealed class AudioPlayer : MonoBehaviour
         while(PlayerAudioSource.isPlaying)
             await Task.Yield();
 
-        AudioManager.Instance.OnPlayerCompletedEvent?.Invoke(Player, config);
+        if(!wasPlayerStop)
+            AudioManager.Instance.OnPlayerCompletedEvent?.Invoke(Player, config);
 
+        wasPlayerStop = false;
+    }
+
+    public void Stop()
+    {
+        PlayerAudioSource.Stop();
+        wasPlayerStop = true;
     }
 }
