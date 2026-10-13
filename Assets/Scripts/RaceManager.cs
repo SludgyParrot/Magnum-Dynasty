@@ -49,7 +49,7 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         RaceInProgress = true;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if(!RaceInProgress) return;
         OnRaceTimeUpdate();
@@ -84,8 +84,17 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
 
     public int GetRacePosition(Vehicle vehicle)
     {
-        var results = vehicles.OrderByDescending(x => x.CurrentLap).ThenByDescending(x => x.PathIndex).ThenBy(x => x.DistanceToWaypoint).ToList();
-        vehicles = results;
+        vehicles.Sort((x, y) => 
+        {
+            if(x.CurrentLap != y.CurrentLap) 
+                return y.CurrentLap.CompareTo(x.CurrentLap);
+
+            if(x.PathIndex != y.PathIndex)
+                return y.PathIndex.CompareTo(x.PathIndex);
+
+            return x.DistanceToWaypoint.CompareTo(y.DistanceToWaypoint);
+        
+        });
         return vehicles.IndexOf(vehicle) + 1;
     }
 

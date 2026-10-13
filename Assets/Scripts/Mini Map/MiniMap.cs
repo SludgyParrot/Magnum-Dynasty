@@ -25,7 +25,9 @@ public sealed class MiniMap : MonoBehaviour
 
     private Vector2 screenSpacePosition;
 
-    public Vector2 GetBlipPosition(Vector3 targetPosition)
+    private bool outOfBounds = false;
+
+    public (Vector2 position, bool outOfBounds) GetBlipPosition(Vector3 targetPosition)
     {
         Vector3 worldPositionOffset = targetPosition - target.position;
         screenSpacePosition.x = worldPositionOffset.x;
@@ -34,12 +36,16 @@ public sealed class MiniMap : MonoBehaviour
 
         screenSpacePosition = GetRotationVector(screenSpacePosition, target.eulerAngles.y);
 
+     
         if(screenSpacePosition.magnitude > MapRadius)
         {
+            outOfBounds = false;
             screenSpacePosition = screenSpacePosition.normalized * MapRadius;
         }
+        else
+            outOfBounds= true;
 
-        return screenSpacePosition;
+        return (screenSpacePosition, outOfBounds);
     }
 
     private Vector2 GetRotationVector(Vector2 vector, float angleInDegrees)
