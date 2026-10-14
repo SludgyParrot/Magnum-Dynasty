@@ -320,7 +320,13 @@ public sealed class Vehicle : MonoBehaviour
             if (currentPathIndex < pathFinder.Paths.Count - 1)
                 currentPathIndex++;
             else
+            {
                 currentPathIndex = 0;
+
+                if (CurrentLap < RaceManager.Instance.TotalLaps)
+                    CurrentLap++;
+            }
+
         }
     }
 
@@ -347,12 +353,6 @@ public sealed class Vehicle : MonoBehaviour
     public void ApplyBrakes()
     {
         isBraking = true;
-    }
-
-    public void IncrementLaps()
-    {
-        if(CurrentLap < RaceManager.Instance.TotalLaps)
-            CurrentLap++;
     }
 
     public void ApplyMisteryBox(MisteryBoxType type, int value)

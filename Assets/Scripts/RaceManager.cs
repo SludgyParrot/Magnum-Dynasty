@@ -66,8 +66,7 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
 
         int racePosition = GetRacePosition(PlayerVehicle);
         var position = string.Format(racePositionInfoStringFormat, racePosition, vehicles.Count);
-        var lap = string.Format(raceLapInfoStringFormat, PlayerVehicle.CurrentLap, TotalLaps);
-        onRaceInfoValueChangedEvent?.Invoke(position, lap);
+        onRaceInfoValueChangedEvent?.Invoke(position, string.Format(raceLapInfoStringFormat, PlayerVehicle.CurrentLap, TotalLaps));
     }
 
     private void OnRaceTimeUpdate()
@@ -77,9 +76,7 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         var minutes = Mathf.FloorToInt(currentRaceTime / 60.0f);
         var seconds = Mathf.FloorToInt(currentRaceTime % 60.0f);
         var milliseconds = Mathf.FloorToInt((currentRaceTime * 100.0f) % 100.0f);
-
-        var timeFormat = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
-        onRaceTimeValueChangedEvent?.Invoke(timeFormat);
+        onRaceTimeValueChangedEvent?.Invoke(string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds));
     }
 
     public int GetRacePosition(Vehicle vehicle)

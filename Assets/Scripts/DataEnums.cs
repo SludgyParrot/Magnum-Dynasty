@@ -71,3 +71,11 @@ public enum MusicGroupType
     KwaitoMusic,
     RockMusic
 }
+
+public enum CameraViewType
+{
+    Default,
+    Menu,
+    Racing,
+    RacingCockpit
+}

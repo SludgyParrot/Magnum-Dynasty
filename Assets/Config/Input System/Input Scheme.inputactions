@@ -374,6 +374,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Camera",
+            "id": "f55fa468-4f3a-4f71-8e4e-1f49bed60e68",
+            "actions": [
+                {
+                    "name": "Camera View",
+                    "type": "Button",
+                    "id": "429821a3-3730-4d71-9dc5-9665a8a31c61",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "b3f32378-7134-4e5d-aed1-b721de4cf420",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Camera View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

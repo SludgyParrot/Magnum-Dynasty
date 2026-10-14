@@ -96,7 +96,6 @@ public sealed class RaceActionEventPointHandler : MonoBehaviour
                     vehicle.ApplyAcceleration();
                 break;
             case RacePointType.CheckPoint:
-                vehicle.IncrementLaps();
                 break;
         }
 
