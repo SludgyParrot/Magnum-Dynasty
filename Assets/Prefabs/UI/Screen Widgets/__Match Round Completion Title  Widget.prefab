@@ -1,0 +1,2341 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &218404409325093111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4364083957514467603}
+  m_Layer: 5
+  m_Name: __Layout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4364083957514467603
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218404409325093111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7276507351275850895}
+  m_Father: {fileID: 7667919526730314185}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &3242219535607638505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7667919526730314185}
+  - component: {fileID: 4379325470863949248}
+  m_Layer: 5
+  m_Name: __Match Round Completion Title  Widget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7667919526730314185
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242219535607638505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4364083957514467603}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4379325470863949248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242219535607638505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da4f7fe8f954bf4f9cf78b2680f3e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnabledLogVerbosity>k__BackingField: 0
+  <Name>k__BackingField: 'Match Round Completion Title '
+  <ScreenType>k__BackingField: 5
+  <ComponentType>k__BackingField: 2
+  <Type>k__BackingField: 40
+  <Layouts>k__BackingField:
+  - <layoutName>k__BackingField: Default Layout
+    <Layout>k__BackingField: {fileID: 218404409325093111}
+    <LayoutType>k__BackingField: 1
+  <DefaultLayoutViewType>k__BackingField: 1
+  <ContentContainerType>k__BackingField: 2
+  <ViewSpace>k__BackingField: 2
+  <PlacementOrder>k__BackingField: 2
+  <TransitionType>k__BackingField: 1
+  <TransitionConfig>k__BackingField:
+    <TransitionableComponent>k__BackingField: {fileID: 0}
+    <TransitionMounts>k__BackingField: []
+  <OrderInLayer>k__BackingField: 0
+  <InstantiationOrderID>k__BackingField: 0
+  <ContentContainers>k__BackingField: []
+  <State>k__BackingField: 2
+  <ActionGroup>k__BackingField:
+  - InputActionGroupType: 7
+    <InputActionGroup>k__BackingField:
+    - {fileID: 2022434829589067452}
+    - {fileID: 6522868687118567957}
+    - {fileID: 5735581830061376843}
+    - {fileID: 6139255840837356655}
+    <Initialize>k__BackingField: 1
+    <NavigationDirection>k__BackingField: 0
+    <NavigationGrid>k__BackingField:
+      <RowCount>k__BackingField: 0
+      <ColumnCount>k__BackingField: 0
+    <DefaultSelectionInputAction>k__BackingField: {fileID: 0}
+  <ScreenTitleOverride>k__BackingField: 
+  <IsInterruptableWidget>k__BackingField: 0
+  <PlaySoundFx>k__BackingField: 0
+  animatorController: {fileID: 1432200033848525968}
+--- !u!1 &4484256098553299839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3370641020533510634}
+  - component: {fileID: 3613177748179474116}
+  m_Layer: 5
+  m_Name: Time's Title BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3370641020533510634
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484256098553299839}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8825167852283428914}
+  m_Father: {fileID: 8047133274238723293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2995, y: 0}
+  m_SizeDelta: {x: 2500, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3613177748179474116
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4484256098553299839}
+  m_CullTransparentMesh: 1
+--- !u!1 &4539055901126308879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8825167852283428914}
+  - component: {fileID: 3971018217534937255}
+  - component: {fileID: 4347126114134917891}
+  - component: {fileID: 6522868687118567957}
+  m_Layer: 5
+  m_Name: __Title BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8825167852283428914
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539055901126308879}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1124182300831104540}
+  m_Father: {fileID: 3370641020533510634}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -724, y: 0}
+  m_SizeDelta: {x: 2500, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3971018217534937255
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539055901126308879}
+  m_CullTransparentMesh: 1
+--- !u!114 &4347126114134917891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539055901126308879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: DIC
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 1687a701c3323d34b9e74c6d02bdef4f, type: 2}
+  m_sharedMaterial: {fileID: -266328623636591498, guid: 1687a701c3323d34b9e74c6d02bdef4f,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 500
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 149
+  m_fontSizeMax: 500
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6522868687118567957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4539055901126308879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63eb06155efbc8b439a606ebb9e9cd2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnabledLogVerbosity>k__BackingField: 0
+  _inputType: 7
+  <ImageViewType>k__BackingField: 0
+  ButtonComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  InputFieldComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    FieldActionInputs: []
+    <PlaceholderTextDisplayer>k__BackingField: {fileID: 0}
+    <CharacterLimit>k__BackingField: 0
+    <ValueType>k__BackingField: 0
+  SliderComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  ToggleComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  DropdownComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    <ArrowIcon>k__BackingField:
+      <DataPackets>k__BackingField:
+        <Action>k__BackingField: 0
+        <LocalizationKey>k__BackingField: 0
+        <Navigation>k__BackingField:
+          m_Mode: 0
+          m_WrapAround: 0
+          m_SelectOnUp: {fileID: 0}
+          m_SelectOnDown: {fileID: 0}
+          m_SelectOnLeft: {fileID: 0}
+          m_SelectOnRight: {fileID: 0}
+      <FieldUIImages>k__BackingField: []
+      <Value>k__BackingField: {fileID: 0}
+  TextComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 4
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 4347126114134917891}
+  ImageComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+  VideoComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+--- !u!1 &6153914825847615526
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7786190027250680961}
+  - component: {fileID: 5348729217481093251}
+  m_Layer: 5
+  m_Name: Up Title BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7786190027250680961
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6153914825847615526}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3695572349969412859}
+  m_Father: {fileID: 8047133274238723293}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3179, y: -3}
+  m_SizeDelta: {x: 2500, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &5348729217481093251
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6153914825847615526}
+  m_CullTransparentMesh: 1
+--- !u!1 &6973491915287391578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3695572349969412859}
+  - component: {fileID: 4553613611043765365}
+  - component: {fileID: 8894048334479314218}
+  - component: {fileID: 6139255840837356655}
+  m_Layer: 5
+  m_Name: __Sub-Title BG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3695572349969412859
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973491915287391578}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 105104700900402526}
+  m_Father: {fileID: 7786190027250680961}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 695, y: 0}
+  m_SizeDelta: {x: 2500, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &4553613611043765365
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973491915287391578}
+  m_CullTransparentMesh: 1
+--- !u!114 &8894048334479314218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973491915287391578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: ED!
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 1687a701c3323d34b9e74c6d02bdef4f, type: 2}
+  m_sharedMaterial: {fileID: -266328623636591498, guid: 1687a701c3323d34b9e74c6d02bdef4f,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 500
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 149
+  m_fontSizeMax: 500
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6139255840837356655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6973491915287391578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63eb06155efbc8b439a606ebb9e9cd2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnabledLogVerbosity>k__BackingField: 0
+  _inputType: 7
+  <ImageViewType>k__BackingField: 0
+  ButtonComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  InputFieldComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    FieldActionInputs: []
+    <PlaceholderTextDisplayer>k__BackingField: {fileID: 0}
+    <CharacterLimit>k__BackingField: 0
+    <ValueType>k__BackingField: 0
+  SliderComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  ToggleComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  DropdownComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    <ArrowIcon>k__BackingField:
+      <DataPackets>k__BackingField:
+        <Action>k__BackingField: 0
+        <LocalizationKey>k__BackingField: 0
+        <Navigation>k__BackingField:
+          m_Mode: 0
+          m_WrapAround: 0
+          m_SelectOnUp: {fileID: 0}
+          m_SelectOnDown: {fileID: 0}
+          m_SelectOnLeft: {fileID: 0}
+          m_SelectOnRight: {fileID: 0}
+      <FieldUIImages>k__BackingField: []
+      <Value>k__BackingField: {fileID: 0}
+  TextComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 10
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 8894048334479314218}
+  ImageComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+  VideoComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+--- !u!1 &7860525618955245452
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8047133274238723293}
+  - component: {fileID: 1432200033848525968}
+  m_Layer: 5
+  m_Name: Animated Content
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8047133274238723293
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860525618955245452}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3370641020533510634}
+  - {fileID: 7786190027250680961}
+  m_Father: {fileID: 7276507351275850895}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.4778442, y: -165}
+  m_SizeDelta: {x: 3038.605, y: 1215.4419}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1432200033848525968
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7860525618955245452}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec3be0c2b0f5eb243a92749cadf661bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &8192472422716158786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 105104700900402526}
+  - component: {fileID: 6069262042730320973}
+  - component: {fileID: 4840750987925331662}
+  - component: {fileID: 5735581830061376843}
+  m_Layer: 5
+  m_Name: __Sub-Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &105104700900402526
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192472422716158786}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3695572349969412859}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -23, y: -10}
+  m_SizeDelta: {x: 2500, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6069262042730320973
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192472422716158786}
+  m_CullTransparentMesh: 1
+--- !u!114 &4840750987925331662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192472422716158786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: ED!
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 1687a701c3323d34b9e74c6d02bdef4f, type: 2}
+  m_sharedMaterial: {fileID: -266328623636591498, guid: 1687a701c3323d34b9e74c6d02bdef4f,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278241946
+  m_fontColor: {r: 0.6039216, g: 0.7921569, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 500
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 149
+  m_fontSizeMax: 500
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5735581830061376843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8192472422716158786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63eb06155efbc8b439a606ebb9e9cd2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnabledLogVerbosity>k__BackingField: 0
+  _inputType: 7
+  <ImageViewType>k__BackingField: 0
+  ButtonComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  InputFieldComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    FieldActionInputs: []
+    <PlaceholderTextDisplayer>k__BackingField: {fileID: 0}
+    <CharacterLimit>k__BackingField: 0
+    <ValueType>k__BackingField: 0
+  SliderComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  ToggleComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  DropdownComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    <ArrowIcon>k__BackingField:
+      <DataPackets>k__BackingField:
+        <Action>k__BackingField: 0
+        <LocalizationKey>k__BackingField: 0
+        <Navigation>k__BackingField:
+          m_Mode: 0
+          m_WrapAround: 0
+          m_SelectOnUp: {fileID: 0}
+          m_SelectOnDown: {fileID: 0}
+          m_SelectOnLeft: {fileID: 0}
+          m_SelectOnRight: {fileID: 0}
+      <FieldUIImages>k__BackingField: []
+      <Value>k__BackingField: {fileID: 0}
+  TextComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 10
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 4840750987925331662}
+  ImageComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+  VideoComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+--- !u!1 &8464479584504306996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7276507351275850895}
+  m_Layer: 5
+  m_Name: ':: Titles'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7276507351275850895
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464479584504306996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8047133274238723293}
+  m_Father: {fileID: 4364083957514467603}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &8660778299338627559
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124182300831104540}
+  - component: {fileID: 6705031450311857779}
+  - component: {fileID: 819248292098339794}
+  - component: {fileID: 2022434829589067452}
+  m_Layer: 5
+  m_Name: __Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1124182300831104540
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660778299338627559}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8825167852283428914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -23, y: -10}
+  m_SizeDelta: {x: 2500, y: 1000}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &6705031450311857779
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660778299338627559}
+  m_CullTransparentMesh: 1
+--- !u!114 &819248292098339794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660778299338627559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: DIC
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 1687a701c3323d34b9e74c6d02bdef4f, type: 2}
+  m_sharedMaterial: {fileID: -266328623636591498, guid: 1687a701c3323d34b9e74c6d02bdef4f,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278240757
+  m_fontColor: {r: 0.9622642, g: 0.77319926, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 500
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 149
+  m_fontSizeMax: 500
+  m_fontStyle: 0
+  m_HorizontalAlignment: 4
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2022434829589067452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660778299338627559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63eb06155efbc8b439a606ebb9e9cd2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <EnabledLogVerbosity>k__BackingField: 0
+  _inputType: 7
+  <ImageViewType>k__BackingField: 0
+  ButtonComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  InputFieldComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    FieldActionInputs: []
+    <PlaceholderTextDisplayer>k__BackingField: {fileID: 0}
+    <CharacterLimit>k__BackingField: 0
+    <ValueType>k__BackingField: 0
+  SliderComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  ToggleComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+  DropdownComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+    <Selectable>k__BackingField: 0
+    <SelectionState>k__BackingField: 0
+    <SelectionStatesInfo>k__BackingField:
+      <States>k__BackingField:
+      - Name: Normal
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 0
+      - Name: Enabled
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 1
+      - Name: Disabled
+        Value: {fileID: 0}
+        Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+        State: 2
+      - Name: Selected
+        Value: {fileID: 0}
+        Color: {r: 1, g: 1, b: 1, a: 1}
+        State: 3
+    <VisualizationType>k__BackingField: 0
+    <SelectionFrame>k__BackingField:
+      <Value>k__BackingField: {fileID: 0}
+    <AdditionSelectionTintedComponents>k__BackingField:
+      imageComponents: []
+      textComponents: []
+      objectComponents: []
+    <PlaySoundFx>k__BackingField: 0
+    <ValidationStatesInfo>k__BackingField:
+      <Validate>k__BackingField: 0
+      ValidationStates:
+      - <Name>k__BackingField: Default
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 1, g: 1, b: 1, a: 1}
+        <ResultsType>k__BackingField: 1
+      - <Name>k__BackingField: Success
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 41, g: 171, b: 0, a: 255}
+        <ResultsType>k__BackingField: 2
+      - <Name>k__BackingField: Warning
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 250, g: 179, b: 8, a: 255}
+        <ResultsType>k__BackingField: 3
+      - <Name>k__BackingField: Error
+        <Value>k__BackingField: {fileID: 0}
+        <Color>k__BackingField: {r: 154, g: 8, b: 8, a: 255}
+        <ResultsType>k__BackingField: 4
+    <ArrowIcon>k__BackingField:
+      <DataPackets>k__BackingField:
+        <Action>k__BackingField: 0
+        <LocalizationKey>k__BackingField: 0
+        <Navigation>k__BackingField:
+          m_Mode: 0
+          m_WrapAround: 0
+          m_SelectOnUp: {fileID: 0}
+          m_SelectOnDown: {fileID: 0}
+          m_SelectOnLeft: {fileID: 0}
+          m_SelectOnRight: {fileID: 0}
+      <FieldUIImages>k__BackingField: []
+      <Value>k__BackingField: {fileID: 0}
+  TextComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 4
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 819248292098339794}
+  ImageComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
+  VideoComponent:
+    <DataPackets>k__BackingField:
+      <Action>k__BackingField: 0
+      <LocalizationKey>k__BackingField: 0
+      <Navigation>k__BackingField:
+        m_Mode: 0
+        m_WrapAround: 0
+        m_SelectOnUp: {fileID: 0}
+        m_SelectOnDown: {fileID: 0}
+        m_SelectOnLeft: {fileID: 0}
+        m_SelectOnRight: {fileID: 0}
+    <FieldUIImages>k__BackingField: []
+    <Value>k__BackingField: {fileID: 0}
