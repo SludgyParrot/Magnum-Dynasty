@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -62,14 +64,45 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         ExecuteGraphNode(currentGraph.Entry);
     }
 
-    private void ExecuteGraphNode(StoryGraphNode node)
+    private async void ExecuteGraphNode(StoryGraphNode node)
     {
         currentGraphNode = node;
 
-        switch(currentGraphNode)
+        switch(node)
         {
             case EntryNode entry:
-                ExecuteNextGraphNode(currentGraphNode);
+                ExecuteNextGraphNode(node);
+                break;
+            case TooltipNode tooltip:
+                if(tooltip.Config == null)
+                    throw new ArgumentNullException(nameof(tooltip.Config), "Cannot be null for tooltip.");
+                EventsManager.Instance.OnDisplayTooltipEvent?.Invoke(tooltip.Config);
+                ExecuteNextGraphNode(node);
+                break;
+            case WaitForSecondsNode waitForSeconds:
+                await Task.Delay(waitForSeconds.Seconds.ToMilliseconds());
+                ExecuteNextGraphNode(node);
+                break;
+            case WaitForEventsNode waitForEvents:
+                List<EventConfig> triggeredEvents = new List<EventConfig>();
+                while (triggeredEvents.Count < waitForEvents.Events.Count)
+                {
+                    foreach (EventConfig eventConfig in waitForEvents.Events)
+                    {
+                        if (!EventsManager.Instance.IsCurrentEvent(eventConfig)) continue;
+
+                        if(!triggeredEvents.Contains(eventConfig))
+                            triggeredEvents.Add(eventConfig);
+                    }
+                    await Task.Yield();
+                }
+                ExecuteNextGraphNode(node);
+                break;
+            case WaitForAudioPlayerNode waitForAudioPlayer:
+                ExecuteNextGraphNode(node);
+                break;
+            case WaitForInputNode waitForInput:
+                ExecuteNextGraphNode(node);
                 break;
             case ExitNode exit:
                 if(exit.ExitGraph != null)

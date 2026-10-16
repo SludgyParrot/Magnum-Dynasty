@@ -1,6 +1,6 @@
 using XNode;
 
-public abstract class ActionNode : StoryGraphNode
+public abstract class DefaultStoryNode : StoryGraphNode
 {
     [Input]
     public int input;

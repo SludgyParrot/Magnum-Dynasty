@@ -1,6 +1,6 @@
 public enum InputAction
 {
-    None,
+    Any,
     Accelerate,
     Brake,
     Steer
@@ -61,7 +61,8 @@ public enum AudioType
     Ambience,
     Environment,
     Music,
-    Fx
+    Fx,
+    Narrator
 }
 
 public enum MusicGroupType
@@ -95,4 +96,11 @@ public enum TriggerEventEntry
     OnEnabled,
     OnDisabled,
     OnIntervals
+}
+
+public enum TooltipType
+{
+    None,
+    MatchStartTooltip,
+    MatchEndTooltip
 }
