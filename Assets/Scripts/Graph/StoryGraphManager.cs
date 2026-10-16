@@ -1,0 +1,107 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Events;
+
+public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
+{
+    [SerializeField]
+    private List<StoryGraph> graphs = 
+        new List<StoryGraph>();
+
+    [SerializeField, Space(5), 
+        Tooltip("Do not assign a value here. " +
+        "This is generated during runtime.")]
+    private StoryGraph currentGraph;
+
+    [SerializeField, Space(5), 
+        Tooltip("Do not assign a value here. " +
+        "This is generated during runtime.")]
+    private StoryGraphNode currentGraphNode;
+
+    [SerializeField, Space(5)]
+    private UnityEvent onGraphStartedEvent, 
+        onGraphExitedEvent, 
+        onGraphCompletedEvent;
+
+    private void OnEnable()
+        => EventsManager.Instance.OnStoryEntryEvent.AddListener(OnGraphEntry);
+
+    private void OnDisable()
+        => EventsManager.Instance.OnStoryEntryEvent.RemoveListener(OnGraphEntry);
+
+    private void Start()
+    {
+        if(graphs.Count == 0) return;
+        InitializeGraphs();
+    }
+
+    private void InitializeGraphs()
+    {
+        foreach (var graph in graphs) 
+            graph.Initialize();
+    }
+
+    private void OnGraphEntry(StoryEntryEvent entry)
+    {
+        var storyGraph = GetStoryGraph(entry);
+
+        if(!string.IsNullOrWhiteSpace(storyGraph.errorMessage))
+        {
+            Debug.LogError(storyGraph.errorMessage);
+            return;
+        }
+
+        Debug.Log($"~On graph entry event: {entry} - Completed: {storyGraph.story.Completed} - Prerequisite: {storyGraph.story.HasPrerequisiteGraphs}");
+
+        if (storyGraph.story.Completed || 
+            storyGraph.story.HasPrerequisiteGraphs) return;
+
+        currentGraph = storyGraph.story;
+
+        ExecuteGraphNode(currentGraph.Entry);
+    }
+
+    private void ExecuteGraphNode(StoryGraphNode node)
+    {
+        currentGraphNode = node;
+
+        switch(currentGraphNode)
+        {
+            case EntryNode entry:
+                ExecuteNextGraphNode(currentGraphNode);
+                break;
+            case ExitNode exit:
+                if(exit.ExitGraph != null)
+                {
+                    currentGraph = exit.ExitGraph;
+                    ExecuteGraphNode(currentGraph.Entry);
+                }
+                break;
+            case CompleteNode complete:
+                currentGraph.CompleteGraph();
+                break;
+        }
+    }
+
+    private void ExecuteNextGraphNode(StoryGraphNode node, 
+        string output = "output")
+    {
+        var port = node.Ports.FirstOrDefault(x => x.IsOutput && x.fieldName == output);
+
+        if (port == null || port.ConnectionCount == 0) return;
+
+        var connectedNode = port.Connection.node as StoryGraphNode;
+
+        if (connectedNode == null) return;
+
+        ExecuteGraphNode(connectedNode);
+    }
+
+    private (StoryGraph story, string errorMessage) GetStoryGraph(StoryEntryEvent entryEvent)
+    {
+        StoryGraph story = graphs.FirstOrDefault(x => x.Entry.EntryEvent == entryEvent);
+        string errorMessage = story == null? $"{nameof(story)} of entry event: {entryEvent} was not found in the graphs for: {gameObject.name}" : string.Empty;
+        return (story, errorMessage);
+    }
+}

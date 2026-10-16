@@ -2932,6 +2932,82 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 739365756394328623, guid: 789666880ec257c4a8daacb1857d6e89, type: 3}
+--- !u!1 &53960166
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53960167}
+  - component: {fileID: 53960169}
+  - component: {fileID: 53960168}
+  m_Layer: 0
+  m_Name: __Story Graph Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &53960167
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53960166}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 193990866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &53960168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53960166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a850863790eef3b4fa6e508a854a4a5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerEvent: 2
+  delay: 5
+  duration: 0
+  intervals: 0
+  entryEvent: 1
+--- !u!114 &53960169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53960166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c04ae72b22ae8849b8e25393dbe433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doNotDestroyOnLoad: 0
+  graphs:
+  - {fileID: 11400000, guid: 3d15f78e1cd8ce041848f53e12c6e2a6, type: 2}
+  currentGraph: {fileID: 0}
+  currentGraphNode: {fileID: 0}
+  onGraphStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onGraphExitedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onGraphCompletedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &56140597 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9082820098611480085, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -9620,6 +9696,7 @@ Transform:
   m_Children:
   - {fileID: 1052157456}
   - {fileID: 688951177}
+  - {fileID: 53960167}
   m_Father: {fileID: 1958465159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &194254538 stripped

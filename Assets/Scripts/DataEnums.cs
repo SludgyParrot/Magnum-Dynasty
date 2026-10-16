@@ -79,3 +79,20 @@ public enum CameraViewType
     Racing,
     RacingCockpit
 }
+
+public enum StoryEntryEvent
+{
+    None,
+    OnRaceStarted,
+    OnRaceCompleted
+}
+
+public enum TriggerEventEntry
+{
+    Custom,
+    OnAwake,
+    OnStart,
+    OnEnabled,
+    OnDisabled,
+    OnIntervals
+}
