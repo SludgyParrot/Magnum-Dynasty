@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Events;
 
 [DisallowMultipleComponent]
 public sealed class ScreenUIHandler : MonoBehaviour
@@ -18,6 +19,10 @@ public sealed class ScreenUIHandler : MonoBehaviour
 
     [SerializeField, Space(5)]
     private float autoHideDelayDuration;
+
+    [SerializeField, Space(5)]
+    private UnityEvent<ScreenContentConfig> onScreenContentValueChangedEvent =
+        new UnityEvent<ScreenContentConfig>();
 
     private void OnEnable()
         => EventsManager.Instance.OnTriggeredEvent.AddListener(OnScreenEvent);
@@ -40,8 +45,11 @@ public sealed class ScreenUIHandler : MonoBehaviour
 
         if(config is ScreenUIEventConfig screenEvent)
         {
-            if (screenEvent.Type == type)
-                OnScreenState(screenEvent);
+            if (screenEvent.Type != type) return;
+            OnScreenState(screenEvent);
+
+            if(screenEvent.OptionalConfig != null) 
+                onScreenContentValueChangedEvent?.Invoke(screenEvent.OptionalConfig);
         }
     }
 

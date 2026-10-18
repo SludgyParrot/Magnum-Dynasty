@@ -18053,7 +18053,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: -250, y: 0}
   m_SizeDelta: {x: 450, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484105607
@@ -20917,7 +20917,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8412b944a92ece04a93a063e6adb89b1,
         type: 3}
       propertyPath: m_Name
-      value: Mistery Box (1)
+      value: Tool Crate
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8412b944a92ece04a93a063e6adb89b1,
         type: 3}
@@ -21006,7 +21006,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  eventConfig: {fileID: 11400000, guid: a3c60131f6106604497c59b1210af896, type: 2}
+  eventConfig: {fileID: 11400000, guid: c3ef47fcd2852874fbd06fd5ebf2fdc6, type: 2}
 --- !u!65 &574607527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26637,6 +26637,9 @@ MonoBehaviour:
   - {fileID: 665345789}
   autoHide: 0
   autoHideDelayDuration: 0
+  onScreenContentValueChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &665345789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38747,6 +38750,7 @@ GameObject:
   - component: {fileID: 995914243}
   - component: {fileID: 995914249}
   - component: {fileID: 995914248}
+  - component: {fileID: 995914250}
   m_Layer: 5
   m_Name: ':: UI Collactables'
   m_TagString: Untagged
@@ -38902,6 +38906,36 @@ MonoBehaviour:
   - {fileID: 995914248}
   autoHide: 1
   autoHideDelayDuration: 2
+  onScreenContentValueChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 995914250}
+        m_TargetAssemblyTypeName: CollactableUIViewConfigurationHandler, Assembly-CSharp
+        m_MethodName: Configure
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &995914250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995914242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73bee8e51b9fabc45a4731d3aefd9d6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemNameDisplayer: {fileID: 1979338526}
+  infoDisplayer: {fileID: 1735210025}
+  thumbnailDisplayer: {fileID: 1154378622}
 --- !u!1 &997694802 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1205093784148814334, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -45172,7 +45206,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2178b074c5e497a4db1fdbdae924a46b, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -65302,7 +65336,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Weapon!
+  m_text: '[None]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eeba2ffc94a64e42b1b2fd57bd3d314, type: 2}
   m_sharedMaterial: {fileID: 5953685419441684785, guid: 4eeba2ffc94a64e42b1b2fd57bd3d314,
@@ -65856,7 +65890,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  eventConfig: {fileID: 11400000, guid: a3c60131f6106604497c59b1210af896, type: 2}
+  eventConfig: {fileID: 11400000, guid: d1df7d282b8f61640947897bef611c2d, type: 2}
 --- !u!82 &1755428322
 AudioSource:
   m_ObjectHideFlags: 0
@@ -73409,6 +73443,9 @@ MonoBehaviour:
   - {fileID: 1981825297}
   autoHide: 1
   autoHideDelayDuration: 2.5
+  onScreenContentValueChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!225 &1960126887
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -74007,7 +74044,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rocket Launcher
+  m_text: '[None]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4eeba2ffc94a64e42b1b2fd57bd3d314, type: 2}
   m_sharedMaterial: {fileID: 5953685419441684785, guid: 4eeba2ffc94a64e42b1b2fd57bd3d314,
@@ -77181,7 +77218,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8412b944a92ece04a93a063e6adb89b1,
         type: 3}
       propertyPath: m_Name
-      value: Mistery Box (2)
+      value: Ammo Crate
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8412b944a92ece04a93a063e6adb89b1,
         type: 3}
@@ -77868,7 +77905,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8412b944a92ece04a93a063e6adb89b1,
         type: 3}
       propertyPath: m_Name
-      value: Mistery Box
+      value: Weapon Crate
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8412b944a92ece04a93a063e6adb89b1,
         type: 3}

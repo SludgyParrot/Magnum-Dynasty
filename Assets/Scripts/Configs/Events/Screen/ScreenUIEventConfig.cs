@@ -8,4 +8,7 @@ public sealed class ScreenUIEventConfig : EventConfig
 
     [field: SerializeField]
     public UIViewState State { get; private set; }
+
+    [field: SerializeField]
+    public ScreenContentConfig OptionalConfig { get; private set; }
 }

@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 043aa0f56b5286c4883c7c39626e1133, type: 3}
-  m_Name: Show Collectable HUD
+  m_Name: Tool Collectable HUD
   m_EditorClassIdentifier: 
   <Type>k__BackingField: 3
   <State>k__BackingField: 0
+  <OptionalConfig>k__BackingField: {fileID: 11400000, guid: 64a9234c02874d94e98a6b38f16ea457,
+    type: 2}
