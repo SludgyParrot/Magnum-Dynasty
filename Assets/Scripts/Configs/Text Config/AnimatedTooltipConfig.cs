@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Match Animated Screen Config", menuName = "Parrot Code/Configs/Match Animated Screen")]
+[CreateAssetMenu(fileName = "Match Animated Screen Config", menuName = "Parrot Code/Config/Match Animated Screen")]
 public sealed class AnimatedTooltipConfig : ScreenTextConfig
 {
     [field: SerializeField]

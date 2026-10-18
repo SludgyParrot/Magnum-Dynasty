@@ -81,13 +81,6 @@ public enum CameraViewType
     RacingCockpit
 }
 
-public enum StoryEntryEvent
-{
-    None,
-    OnRaceStarted,
-    OnRaceCompleted
-}
-
 public enum TriggerEventEntry
 {
     Custom,
@@ -103,4 +96,17 @@ public enum TooltipType
     None,
     MatchStartTooltip,
     MatchEndTooltip
+}
+
+public enum ScreenState
+{
+    Focus,
+    Blur
+}
+
+public enum ScreenSortingLayer
+{
+    Default,
+    ForeGround,
+    Background
 }

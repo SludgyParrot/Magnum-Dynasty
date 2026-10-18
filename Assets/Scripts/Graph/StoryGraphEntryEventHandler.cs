@@ -3,8 +3,8 @@ using UnityEngine;
 public sealed class StoryGraphEntryEventHandler : TriggerEvent
 {
     [SerializeField, Space(5)]
-    private StoryEntryEvent entryEvent;
+    private EventConfig entryEvent;
 
     public override void Trigger()
-        => EventsManager.Instance.OnStoryEntryEvent?.Invoke(entryEvent);
+        => EventsManager.Instance.OnTriggeredEvent?.Invoke(entryEvent);
 }

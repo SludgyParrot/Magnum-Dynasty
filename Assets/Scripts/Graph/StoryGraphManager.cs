@@ -27,10 +27,10 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         onGraphCompletedEvent;
 
     private void OnEnable()
-        => EventsManager.Instance.OnStoryEntryEvent.AddListener(OnGraphEntry);
+        => EventsManager.Instance.OnTriggeredEvent.AddListener(OnGraphEntry);
 
     private void OnDisable()
-        => EventsManager.Instance.OnStoryEntryEvent.RemoveListener(OnGraphEntry);
+        => EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnGraphEntry);
 
     private void Start()
     {
@@ -44,8 +44,10 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
             graph.Initialize();
     }
 
-    private void OnGraphEntry(StoryEntryEvent entry)
+    private void OnGraphEntry(EventConfig entry)
     {
+        if(entry == null) return;
+
         var storyGraph = GetStoryGraph(entry);
 
         if(!string.IsNullOrWhiteSpace(storyGraph.errorMessage))
@@ -79,6 +81,10 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 EventsManager.Instance.OnDisplayTooltipEvent?.Invoke(tooltip.Config);
                 ExecuteNextGraphNode(node);
                 break;
+            case TriggerEventNode triggerEvent:
+                EventsManager.Instance.OnTriggeredEvent?.Invoke(triggerEvent.Event);
+                ExecuteNextGraphNode(node);
+                break;
             case WaitForSecondsNode waitForSeconds:
                 await Task.Delay(waitForSeconds.Seconds.ToMilliseconds());
                 ExecuteNextGraphNode(node);
@@ -102,6 +108,10 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 ExecuteNextGraphNode(node);
                 break;
             case WaitForInputNode waitForInput:
+                ExecuteNextGraphNode(node);
+                break;
+            case ScreenNode screen:
+                EventsManager.Instance.OnScreenConfigurationEvent?.Invoke(screen.Config);
                 ExecuteNextGraphNode(node);
                 break;
             case ExitNode exit:
@@ -131,9 +141,9 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         ExecuteGraphNode(connectedNode);
     }
 
-    private (StoryGraph story, string errorMessage) GetStoryGraph(StoryEntryEvent entryEvent)
+    private (StoryGraph story, string errorMessage) GetStoryGraph(EventConfig entryEvent)
     {
-        StoryGraph story = graphs.FirstOrDefault(x => x.Entry.EntryEvent == entryEvent);
+        StoryGraph story = graphs.FirstOrDefault(x => x.Entry.EntryEvents.Contains(entryEvent) && x != currentGraph);
         string errorMessage = story == null? $"{nameof(story)} of entry event: {entryEvent} was not found in the graphs for: {gameObject.name}" : string.Empty;
         return (story, errorMessage);
     }

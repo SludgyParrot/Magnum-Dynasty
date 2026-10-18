@@ -7,19 +7,22 @@ public sealed class EventsManager : SingletonInstance<EventsManager>
     public UnityEvent<float, float> OnSpeedOMeterValueChanged = 
         new UnityEvent<float, float>();
 
-    public UnityEvent<StoryEntryEvent> OnStoryEntryEvent =
-        new UnityEvent<StoryEntryEvent>();
-
     public UnityEvent<ScreenTextConfig> OnDisplayTooltipEvent = 
         new UnityEvent<ScreenTextConfig>();
 
     public UnityEvent<EventConfig> OnTriggeredEvent =
-     new UnityEvent<EventConfig>();
+        new UnityEvent<EventConfig>();
+
+    public UnityEvent<ScreenConfig> OnScreenConfigurationEvent =
+        new UnityEvent<ScreenConfig>();
 
     public EventConfig CurrentTriggeredEventConfig {  get; private set; }
 
     public bool IsCurrentEvent(EventConfig config)
-        => config.GetType() == CurrentTriggeredEventConfig.GetType();
+    {
+        if (CurrentTriggeredEventConfig == null) return false;
+        return config.GetType() == CurrentTriggeredEventConfig.GetType();
+    }
 
     private void OnEnable()
         => OnTriggeredEvent.AddListener(SetCurrentTriggeredEventConfig);
@@ -33,7 +36,7 @@ public sealed class EventsManager : SingletonInstance<EventsManager>
     public void OnSceneExit()
     {
         OnSpeedOMeterValueChanged?.RemoveAllListeners();
-        OnStoryEntryEvent?.RemoveAllListeners();
+        OnTriggeredEvent?.RemoveAllListeners();
         OnDisplayTooltipEvent?.RemoveAllListeners();
     }
 }

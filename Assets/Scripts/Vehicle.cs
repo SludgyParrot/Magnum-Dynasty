@@ -325,6 +325,14 @@ public sealed class Vehicle : MonoBehaviour
 
                 if (CurrentLap < RaceManager.Instance.TotalLaps)
                     CurrentLap++;
+                else
+                {
+                    if(IsPlayer)
+                    {
+                        RaceManager.Instance.CompleteRace();
+                        IsPlayer = false;
+                    }
+                }
             }
 
         }

@@ -16,8 +16,10 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
     private string racePositionInfoStringFormat, 
         raceLapInfoStringFormat;
 
+    [SerializeField, Space(5)]
+    private MatchCompletedEvent matchEventConfig;
 
-   [SerializeField, Space(5)]
+    [SerializeField, Space(5)]
     private UnityEvent<string> onRaceTimeValueChangedEvent;
 
     [SerializeField, Space(5)]
@@ -97,4 +99,10 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
 
     public void SetPlayerVehicle(Vehicle vehicle)
         => playerVehicle = vehicle;
+
+    public void CompleteRace()
+    {
+        if (matchEventConfig == null) return;
+        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchEventConfig);
+    }
 }

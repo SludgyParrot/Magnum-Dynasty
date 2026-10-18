@@ -11,7 +11,6 @@ public sealed class StoryGraph : NodeGraph
 
     public EntryNode Entry {  get; private set; }
 
-    [field: SerializeField]
     public bool Completed { get; private set; }
 
     public bool HasPrerequisiteGraphs
