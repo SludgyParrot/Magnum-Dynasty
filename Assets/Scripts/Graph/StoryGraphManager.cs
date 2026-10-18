@@ -104,7 +104,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
             case WaitForInputNode waitForInput:
                 ExecuteNextGraphNode(node);
                 break;
-            case ScreenNode screen:
+            case ScreenStateNode screen:
                 EventsManager.Instance.OnScreenConfigurationEvent?.Invoke(screen.Config);
                 ExecuteNextGraphNode(node);
                 break;

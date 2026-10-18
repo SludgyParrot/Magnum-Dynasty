@@ -12,6 +12,9 @@ public sealed class MisteryBoxHandler : MonoBehaviour
     [SerializeField, Space(5)]
     private UnityEvent onBoxTriggeredEvent;
 
+    [SerializeField, Space(5)]
+    private ScreenUIEventConfig eventConfig;
+
    private void OnTriggerEnter(Collider other)
     {
         Vehicle vehicle = other.GetComponent<Vehicle>();
@@ -19,5 +22,8 @@ public sealed class MisteryBoxHandler : MonoBehaviour
 
         vehicle.ApplyMisteryBox(boxType, value);
         onBoxTriggeredEvent?.Invoke();
+
+        if (vehicle.IsPlayer)
+            EventsManager.Instance.OnTriggeredEvent?.Invoke(eventConfig);
     }
 }

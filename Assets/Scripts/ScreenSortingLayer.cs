@@ -115,7 +115,8 @@ public enum ScreenUIType
 {
     None,
     MusicPlayerPreview,
-    MatchHUD
+    MatchHUD,
+    CollactableHUD
 }
 
 public enum UIViewState
