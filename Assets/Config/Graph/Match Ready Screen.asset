@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: Entry
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2264, y: -296}
+  position: {x: -3048, y: -312}
   ports:
     keys:
     - output
@@ -255,6 +255,52 @@ MonoBehaviour:
       _dynamic: 0
   <ExitGraph>k__BackingField: {fileID: 0}
   input: 0
+--- !u!114 &-3945044638920474933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a09cb3ed63f0974a856de994acad71b, type: 3}
+  m_Name: Game Time
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1478.5754, y: -32.50151}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: -3945044638920474933}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 4684552435983274202}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -3945044638920474933}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 5352663634051851296}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <Time>k__BackingField: 1
 --- !u!114 &-2617272786889560211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,7 +314,7 @@ MonoBehaviour:
   m_Name: Wait For Seconds
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -2008, y: -152}
+  position: {x: -2792, y: -168}
   ports:
     keys:
     - input
@@ -314,7 +360,7 @@ MonoBehaviour:
   m_Name: Wait For Seconds
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1480, y: -152}
+  position: {x: -2264, y: -168}
   ports:
     keys:
     - input
@@ -338,7 +384,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: input
-        node: {fileID: 5352663634051851296}
+        node: {fileID: -466515742381515034}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -407,7 +453,7 @@ MonoBehaviour:
   m_Name: Tooltip
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1720, y: -168}
+  position: {x: -2504, y: -184}
   ports:
     keys:
     - input
@@ -444,6 +490,52 @@ MonoBehaviour:
   output: 0
   <Config>k__BackingField: {fileID: 11400000, guid: ec109c34b3a1a6c4a85da4c14997b37d,
     type: 2}
+--- !u!114 &-466515742381515034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a09cb3ed63f0974a856de994acad71b, type: 3}
+  m_Name: Game Time
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1992, y: -152}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: -466515742381515034}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: -2106166751118125544}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -466515742381515034}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 4684552435983274202}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <Time>k__BackingField: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +559,9 @@ MonoBehaviour:
   - {fileID: 352915679586440585}
   - {fileID: -7781268471230645884}
   - {fileID: 5352663634051851296}
+  - {fileID: -466515742381515034}
+  - {fileID: 4684552435983274202}
+  - {fileID: -3945044638920474933}
   GraphNodes:
   - {fileID: -8668162045493895310}
   - {fileID: 0}
@@ -483,6 +578,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 352915679586440585}
   - {fileID: -7781268471230645884}
+  - {fileID: 5352663634051851296}
+  - {fileID: -466515742381515034}
 --- !u!114 &219434879684852524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +721,52 @@ MonoBehaviour:
   output: 0
   <Config>k__BackingField: {fileID: 11400000, guid: aad3401bdc6f3d448a6f9945099522bf,
     type: 2}
+--- !u!114 &4684552435983274202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27400be2e72a92c4da5221c13cde5715, type: 3}
+  m_Name: Wait For Seconds
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1741.0623, y: -82.764946}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 4684552435983274202}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: -466515742381515034}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 4684552435983274202}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: -3945044638920474933}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <Seconds>k__BackingField: 2
 --- !u!114 &5352663634051851296
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +792,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: output
-        node: {fileID: -2106166751118125544}
+        node: {fileID: -3945044638920474933}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

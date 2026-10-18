@@ -112,6 +112,10 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 EventsManager.Instance.OnTriggeredEvent?.Invoke(musicPlayer.PlayerEvent);
                 ExecuteNextGraphNode(node);
                 break;
+            case GameTimeNode gameTime:
+                Time.timeScale = gameTime.Time;
+                ExecuteNextGraphNode(node);
+                break;
             case ExitNode exit:
                 if(exit.ExitGraph != null)
                 {
