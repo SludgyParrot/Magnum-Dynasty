@@ -1,5 +1,4 @@
 using System;
-using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
@@ -46,7 +45,7 @@ public sealed class ScreenFocusConfigurationHandler : ScreenConfiguration
             OnScreenFocusConfiguration(focusConfig);
     }
 
-    private async void OnScreenFocusConfiguration(ScreenFocusConfig focusConfig)
+    private void OnScreenFocusConfiguration(ScreenFocusConfig focusConfig)
     {
         if(focusConfig.State == ScreenState.Blur)
         {
@@ -54,24 +53,10 @@ public sealed class ScreenFocusConfigurationHandler : ScreenConfiguration
             depthOfField.focusDistance.Override(focusDistance);
         }
 
-        await OnScreenTransitionAsync(focusConfig.State, focusConfig.TransitionSpeed);
-    }
-
-    private async Task OnScreenTransitionAsync(ScreenState state, float speed)
-    {
-        float targetFocalLength = state == ScreenState.Focus ? 0.0f : focalLength;
-
-        while(!Mathf.Approximately(depthOfField.focalLength.value, targetFocalLength))
-        {
-            depthOfField.focalLength.value = Mathf.MoveTowards(depthOfField.focalLength.value,
-                targetFocalLength, speed * Time.deltaTime);
-
-            await Task.Yield();
-        }
-
+        float targetFocalLength = focusConfig.State == ScreenState.Focus ? 0.0f : focalLength;
         depthOfField.focalLength.Override(targetFocalLength);
 
-        if(state == ScreenState.Focus)
+        if (focusConfig.State == ScreenState.Focus)
             depthOfField.active = false;
     }
 }

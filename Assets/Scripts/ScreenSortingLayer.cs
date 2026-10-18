@@ -110,3 +110,32 @@ public enum ScreenSortingLayer
     ForeGround,
     Background
 }
+
+public enum ScreenUIType
+{
+    None,
+    MusicPlayerPreview,
+    MatchHUD
+}
+
+public enum UIViewState
+{
+    Show,
+    Hide
+}
+
+public enum ScreenUITransitionType
+{
+    Default,
+    Fade,
+    Translate
+}
+
+public enum TranslatePropertyType
+{
+    None,
+    All,
+    Position,
+    Rotation,
+    Scale
+}

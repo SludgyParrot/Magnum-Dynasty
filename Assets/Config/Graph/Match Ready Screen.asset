@@ -1,5 +1,52 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9155080348659876399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d035c76c759f252428aebcb4bba553b1, type: 3}
+  m_Name: Screen
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -328, y: -136}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: -9155080348659876399}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 1156489486106746948}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -9155080348659876399}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 352915679586440585}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <Config>k__BackingField: {fileID: 11400000, guid: 7263ffe6ceced874abf573be645ea927,
+    type: 2}
 --- !u!114 &-8726342642256376370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,7 +107,7 @@ MonoBehaviour:
   m_Name: Entry
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1304, y: -232}
+  position: {x: -2104, y: -376}
   ports:
     keys:
     - output
@@ -94,7 +141,7 @@ MonoBehaviour:
   m_Name: Exit
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 1016, y: -120}
+  position: {x: 1016, y: -72}
   ports:
     keys:
     - input
@@ -126,7 +173,7 @@ MonoBehaviour:
   m_Name: Wait For Seconds
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1032, y: -136}
+  position: {x: -1848, y: -232}
   ports:
     keys:
     - input
@@ -150,7 +197,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: input
-        node: {fileID: -1600675300310363663}
+        node: {fileID: 5577958414014320309}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -158,7 +205,7 @@ MonoBehaviour:
       _dynamic: 0
   input: 0
   output: 0
-  <Seconds>k__BackingField: 5
+  <Seconds>k__BackingField: 1
 --- !u!114 &-2106166751118125544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +219,7 @@ MonoBehaviour:
   m_Name: Wait For Seconds
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -280, y: -88}
+  position: {x: -840, y: -168}
   ports:
     keys:
     - input
@@ -218,7 +265,7 @@ MonoBehaviour:
   m_Name: Screen
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -760, y: -120}
+  position: {x: -1336, y: -200}
   ports:
     keys:
     - input
@@ -230,7 +277,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: output
-        node: {fileID: -2617272786889560211}
+        node: {fileID: 5577958414014320309}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
@@ -265,7 +312,7 @@ MonoBehaviour:
   m_Name: Tooltip
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -520, y: -104}
+  position: {x: -1080, y: -184}
   ports:
     keys:
     - input
@@ -322,6 +369,9 @@ MonoBehaviour:
   - {fileID: -1600675300310363663}
   - {fileID: -2106166751118125544}
   - {fileID: 1156489486106746948}
+  - {fileID: 5577958414014320309}
+  - {fileID: -9155080348659876399}
+  - {fileID: 352915679586440585}
   GraphNodes:
   - {fileID: -8668162045493895310}
   - {fileID: 0}
@@ -334,6 +384,9 @@ MonoBehaviour:
   - {fileID: -1600675300310363663}
   - {fileID: -2106166751118125544}
   - {fileID: 1156489486106746948}
+  - {fileID: 5577958414014320309}
+  - {fileID: -9155080348659876399}
+  - {fileID: 352915679586440585}
 --- !u!114 &219434879684852524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,6 +434,53 @@ MonoBehaviour:
   output: 0
   <Config>k__BackingField: {fileID: 11400000, guid: ff2d01f1dec0af54f8b3bf35a68d1573,
     type: 2}
+--- !u!114 &352915679586440585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4957f29efe05a0c4d82cccada1127fde, type: 3}
+  m_Name: Music Player
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -72, y: -104}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 352915679586440585}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: -9155080348659876399}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 352915679586440585}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 8779283697543636425}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <PlayerEvent>k__BackingField: {fileID: 11400000, guid: e79164e8b28d1f34caa69cb0a4ccfb07,
+    type: 2}
 --- !u!114 &1156489486106746948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +494,7 @@ MonoBehaviour:
   m_Name: Screen
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -40, y: -72}
+  position: {x: -568, y: -152}
   ports:
     keys:
     - input
@@ -418,7 +518,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: input
-        node: {fileID: 8779283697543636425}
+        node: {fileID: -9155080348659876399}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -427,6 +527,53 @@ MonoBehaviour:
   input: 0
   output: 0
   <Config>k__BackingField: {fileID: 11400000, guid: aad3401bdc6f3d448a6f9945099522bf,
+    type: 2}
+--- !u!114 &5577958414014320309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d035c76c759f252428aebcb4bba553b1, type: 3}
+  m_Name: Screen
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1608, y: -216}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: 5577958414014320309}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: -2617272786889560211}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: 5577958414014320309}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: -1600675300310363663}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <Config>k__BackingField: {fileID: 11400000, guid: b1a784f8e2503794baea916aeddfbfc0,
     type: 2}
 --- !u!114 &8779283697543636425
 MonoBehaviour:
@@ -453,7 +600,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: output
-        node: {fileID: 1156489486106746948}
+        node: {fileID: 352915679586440585}
         reroutePoints: []
       _direction: 0
       _connectionType: 0

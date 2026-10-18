@@ -50,13 +50,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
 
         var storyGraph = GetStoryGraph(entry);
 
-        if(!string.IsNullOrWhiteSpace(storyGraph.errorMessage))
-        {
-            Debug.LogError(storyGraph.errorMessage);
-            return;
-        }
-
-        Debug.Log($"~On graph entry event: {entry} - Completed: {storyGraph.story.Completed} - Prerequisite: {storyGraph.story.HasPrerequisiteGraphs}");
+        if (!string.IsNullOrWhiteSpace(storyGraph.errorMessage)) return;
 
         if (storyGraph.story.Completed || 
             storyGraph.story.HasPrerequisiteGraphs) return;
@@ -112,6 +106,10 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 break;
             case ScreenNode screen:
                 EventsManager.Instance.OnScreenConfigurationEvent?.Invoke(screen.Config);
+                ExecuteNextGraphNode(node);
+                break;
+            case MusicPlayerNode musicPlayer:
+                EventsManager.Instance.OnTriggeredEvent?.Invoke(musicPlayer.PlayerEvent);
                 ExecuteNextGraphNode(node);
                 break;
             case ExitNode exit:

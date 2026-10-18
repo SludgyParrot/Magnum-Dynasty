@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -92,12 +93,14 @@ public sealed class MusicPlayer : MonoBehaviour
     {
         AudioManager.Instance.OnPlayerStartedEvent.AddListener(OnSongStartedEvent);
         AudioManager.Instance.OnPlayerCompletedEvent.AddListener(OnSongCompletedEvent);
+        EventsManager.Instance.OnTriggeredEvent.AddListener(OnTriggeredEvent);
     }
 
     private void OnDisable()
     {
         AudioManager.Instance.OnPlayerStartedEvent.RemoveListener(OnSongStartedEvent);
         AudioManager.Instance.OnPlayerCompletedEvent.RemoveListener(OnSongCompletedEvent);
+        EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnTriggeredEvent);
     }
 
     private void Start()
@@ -115,6 +118,17 @@ public sealed class MusicPlayer : MonoBehaviour
 
         if (!autoPlay) return;
         Invoke("Initialize", autoPlayDelayTime);
+    }
+
+    private async void OnTriggeredEvent(EventConfig eventConfig)
+    {
+        if(eventConfig == null) return;
+
+        if (eventConfig is MusicPlayerEvent playerEvent)
+        {
+            await Task.Delay(playerEvent.StartDelayDuration.ToMilliseconds());
+            PlayMusic(playerEvent.MusicGroup);
+        }
     }
 
     private void PlayNextSong(UnityEngine.InputSystem.InputAction.CallbackContext obj)
