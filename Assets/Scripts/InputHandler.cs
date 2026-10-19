@@ -7,13 +7,14 @@ using UnityEngine.InputSystem;
 [Serializable]
 public sealed class ActionInput
 {
-    public string Name;
+    [SerializeField]
+    private string Name;
 
-    [Space(5)]
-    public InputActionReference Reference;
+    [field: SerializeField, Space(5)]
+    public InputActionReference Reference { get; private set; }
 
-    [Space(5)]
-    public InputAction Action;
+    [field: SerializeField, Space(5)]
+    public InputEvent ActionEvent { get; private set; }
 }
 
 public class InputHandler : MonoBehaviour
@@ -26,14 +27,10 @@ public class InputHandler : MonoBehaviour
         new List<ActionInput>();
 
     [SerializeField, Space(5)]
-    private UnityEvent<InputAction, bool> onInputEvent = 
-        new UnityEvent<InputAction, bool>();
+    private UnityEvent<InputEvent> onInputEvent = 
+        new UnityEvent<InputEvent>();
 
-    [SerializeField, Space(5)]
-    private UnityEvent<Vector2, bool> onInputVector2Event =
-       new UnityEvent<Vector2, bool>();
-
-    private void Start()
+    private void OnEnable()
     {
         if (actions.Count == 0) return;
 
@@ -41,25 +38,61 @@ public class InputHandler : MonoBehaviour
             input.Enable();
 
         foreach (var input in actions)
-        {
-            input.Reference.action.performed += context => SendInputActionEvent(input.Action, context, true);
-            input.Reference.action.canceled += context => SendInputActionEvent(input.Action, context, false);
-        }
+            OnRegisterInputs(input);
     }
 
-    private void SendInputActionEvent(InputAction action, UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed)
+    private void OnDisable()
     {
-        switch(action)
+        if (actions.Count == 0) return;
+
+        if (input != null)
+            input.Disable();
+
+        foreach (var input in actions)
+            OnRegisterInputs(input, false);
+    }
+
+    private void OnRegisterInputs(ActionInput input, bool register = true)
+    {
+        if (input.ActionEvent == null)
         {
-            case InputAction.Accelerate:
-            case InputAction.Brake:
-                onInputEvent?.Invoke(action, performed);
-                break;
-            case InputAction.Steer:
-                var results = obj.ReadValue<Vector2>();
-                onInputVector2Event?.Invoke(results, performed);
-                break;
+            Debug.LogError($"{nameof(input.ActionEvent)} cannot be null for: {gameObject.name}");
+            return;
+        }
+
+        if (register)
+        {
+            input.Reference.action.performed += context => SendInputActionEvent(input.ActionEvent, context, true);
+            input.Reference.action.canceled += context => SendInputActionEvent(input.ActionEvent, context, false);
+        }
+        else
+        {
+            input.Reference.action.performed -= context => SendInputActionEvent(input.ActionEvent, context, true);
+            input.Reference.action.canceled -= context => SendInputActionEvent(input.ActionEvent, context, false);
         }
     }
 
+    private void SendInputActionEvent(InputEvent actionEvent, UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed)
+    {
+        if (actionEvent is InputActionEvent action)
+        {
+            action.SetPerformed(performed);
+            onInputEvent?.Invoke(action);
+            EventsManager.Instance.OnTriggeredEvent?.Invoke(action);
+        }
+
+        if(actionEvent is InputFloatValueEvent floatValue)
+        {
+            floatValue.SetValue(obj.ReadValue<float>());
+            onInputEvent?.Invoke(floatValue);
+            EventsManager.Instance.OnTriggeredEvent?.Invoke(floatValue);
+        }
+
+        if(actionEvent is InputVectorValueEvent vectorValue)
+        {
+            vectorValue.SetValue(obj.ReadValue<Vector2>());
+            onInputEvent?.Invoke(vectorValue);
+            EventsManager.Instance.OnTriggeredEvent?.Invoke(vectorValue);
+        }
+    }
 }

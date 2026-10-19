@@ -53,7 +53,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         if (!string.IsNullOrWhiteSpace(storyGraph.errorMessage)) return;
 
         if (storyGraph.story.Completed || 
-            storyGraph.story.HasPrerequisiteGraphs) return;
+            storyGraph.story.HasPrerequisiteGraphs || (currentGraph != null && storyGraph.story == currentGraph)) return;
 
         currentGraph = storyGraph.story;
 
@@ -102,6 +102,25 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 ExecuteNextGraphNode(node);
                 break;
             case WaitForInputNode waitForInput:
+                if(waitForInput.InputActions.Count > 0)
+                {
+                    bool inputTriggered = false;
+
+                    while(!inputTriggered)
+                    {
+                        for(int i = 0; i < waitForInput.InputActions.Count; i++)
+                        {
+                            var eventConfig = waitForInput.InputActions[i];
+                            if (!EventsManager.Instance.IsCurrentEvent(eventConfig)) continue;
+                            inputTriggered = true;
+                        }
+                        await Task.Yield();
+                    }
+                }
+                else
+                {
+
+                }
                 ExecuteNextGraphNode(node);
                 break;
             case ScreenStateNode screen:
@@ -145,7 +164,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
 
     private (StoryGraph story, string errorMessage) GetStoryGraph(EventConfig entryEvent)
     {
-        StoryGraph story = graphs.FirstOrDefault(x => x.Entry.EntryEvents.Contains(entryEvent) && x != currentGraph);
+        StoryGraph story = graphs.FirstOrDefault(x => x.Entry.EntryEvents.Contains(entryEvent));
         string errorMessage = story == null? $"{nameof(story)} of entry event: {entryEvent} was not found in the graphs for: {gameObject.name}" : string.Empty;
         return (story, errorMessage);
     }

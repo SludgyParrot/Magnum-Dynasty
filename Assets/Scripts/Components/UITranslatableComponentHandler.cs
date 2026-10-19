@@ -32,6 +32,7 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
             throw new ArgumentNullException(nameof(layout), $"Cannot be null for: {gameObject.name}.");
 
         view = layout.GetComponent<RectTransform>();
+
         viewGroup = GetComponent<CanvasGroup>();
         viewCanvas = GetComponent<Canvas>();
 
@@ -157,7 +158,9 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
 
     private async Task TranslatePositionAsync(Vector2 anchoredPosition, float translateSpeed)
     {
-        while((view.anchoredPosition - anchoredPosition).magnitude > TRANSLATE_DISTANCE_THRESHOLD)
+        if (view == null) return;
+
+        while ((view.anchoredPosition - anchoredPosition).magnitude > TRANSLATE_DISTANCE_THRESHOLD)
         {
             view.anchoredPosition = Vector2.Lerp(view.anchoredPosition, anchoredPosition, translateSpeed * Time.deltaTime);
             await Task.Yield();
@@ -168,6 +171,8 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
 
     private async Task TranslateRotationAsync(Quaternion rotation, float translateSpeed)
     {
+        if (view == null) return;
+
         while ((view.eulerAngles - rotation.eulerAngles).magnitude > TRANSLATE_DISTANCE_THRESHOLD)
         {
             view.eulerAngles = Vector3.Slerp(view.eulerAngles, rotation.eulerAngles, translateSpeed * Time.deltaTime);
@@ -179,6 +184,8 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
 
     private async Task TranslateScaleAsync(Vector2 sizeDelta, float translateSpeed)
     {
+        if (view == null) return;
+
         while (Mathf.Abs((view.sizeDelta - sizeDelta).magnitude) > TRANSLATE_DISTANCE_THRESHOLD)
         {
             view.sizeDelta = Vector2.Lerp(view.sizeDelta, sizeDelta, translateSpeed * Time.deltaTime);

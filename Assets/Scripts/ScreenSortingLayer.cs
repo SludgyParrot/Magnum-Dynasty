@@ -1,9 +1,29 @@
-public enum InputAction
+public enum InputButton
 {
-    Any,
-    Accelerate,
-    Brake,
-    Steer
+    AButton,
+    BButton,
+    XButton,
+    YButton,
+    RightButton,
+    LeftButton,
+    DPadUp,
+    DPadDown,
+    DPadLeft,
+    DPadRight,
+    StartButton,
+    OptionsButton
+}
+
+public enum InputFloat
+{
+   LeftTrigger,
+   RightTrigger
+}
+
+public enum InputVector
+{
+    LeftJoystick,
+    RightJoystick
 }
 
 public enum DriveType

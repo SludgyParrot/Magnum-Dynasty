@@ -1,7 +1,8 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class WaitForInputNode : DefaultStoryNode
 {
    [field: SerializeField]
-   public InputAction Input {  get; private set; }
+   public List<InputEvent> InputActions {  get; private set; }
 }
