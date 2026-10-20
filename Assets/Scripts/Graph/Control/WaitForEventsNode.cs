@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class WaitForEventsNode : DefaultStoryNode
+public sealed class WaitForEventsNode : TimeOutBaseNode
 {
-    [field: SerializeField]
+    [field: SerializeField, Space(5)]
     public List<EventConfig> Events { get; private set; }
 }

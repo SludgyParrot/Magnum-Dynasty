@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -26,16 +28,24 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         onGraphExitedEvent, 
         onGraphCompletedEvent;
 
+    CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+    private float deltaTime = 0;
+
     private void OnEnable()
         => EventsManager.Instance.OnTriggeredEvent.AddListener(OnGraphEntry);
 
     private void OnDisable()
-        => EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnGraphEntry);
+    {
+        EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnGraphEntry);
+        cancellationTokenSource.Cancel();
+    }
 
     private void Start()
     {
         if(graphs.Count == 0) return;
         InitializeGraphs();
+
+        deltaTime = Time.deltaTime;
     }
 
     private void InitializeGraphs()
@@ -46,7 +56,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
 
     private void OnGraphEntry(EventConfig entry)
     {
-        if(entry == null) return;
+        if(entry == null || graphs.Count == 0) return;
 
         var storyGraph = GetStoryGraph(entry);
 
@@ -85,8 +95,22 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 break;
             case WaitForEventsNode waitForEvents:
                 List<EventConfig> triggeredEvents = new List<EventConfig>();
-                while (triggeredEvents.Count < waitForEvents.Events.Count)
+                bool eventsTriggered = false;
+                float eventsTimeOut = waitForEvents.TimeOut;
+                bool eventHasATimeOut = eventsTimeOut > 0;
+                bool eventTimedOut = false;
+                while (!eventsTriggered &&
+                    !cancellationTokenSource.Token.IsCancellationRequested)
                 {
+                    eventsTriggered = triggeredEvents.Count == waitForEvents.Events.Count;
+
+                    if (eventHasATimeOut)
+                    {
+                        eventsTimeOut -= 1 * deltaTime;
+                        eventTimedOut = eventsTimeOut <= 0.0f;
+                        if (eventTimedOut)
+                            eventsTriggered = true;
+                    }
                     foreach (EventConfig eventConfig in waitForEvents.Events)
                     {
                         if (!EventsManager.Instance.IsCurrentEvent(eventConfig)) continue;
@@ -96,32 +120,67 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                     }
                     await Task.Yield();
                 }
-                ExecuteNextGraphNode(node);
+                if(eventTimedOut)
+                    ExecuteNextGraphNode(node, waitForEvents.TimedOutEventName);
+                else
+                    ExecuteNextGraphNode(node);
                 break;
             case WaitForAudioPlayerNode waitForAudioPlayer:
                 ExecuteNextGraphNode(node);
                 break;
             case WaitForInputNode waitForInput:
-                if(waitForInput.InputActions.Count > 0)
+                if (waitForInput.InputActions.Count > 0)
                 {
                     bool inputTriggered = false;
-
-                    while(!inputTriggered)
+                    float timeOut = waitForInput.TimeOut;
+                    bool hasTimeOut = timeOut > 0;
+                    bool timedOut = false;
+                    while (!inputTriggered && !cancellationTokenSource.Token.IsCancellationRequested)
                     {
-                        for(int i = 0; i < waitForInput.InputActions.Count; i++)
+                        if(hasTimeOut)
+                        {
+                            timeOut -= 1 * deltaTime;
+                            timedOut = timeOut <= 0.0f;
+
+                            if (timedOut)
+                                inputTriggered = true;
+                        }
+
+                        for (int i = 0; i < waitForInput.InputActions.Count; i++)
                         {
                             var eventConfig = waitForInput.InputActions[i];
                             if (!EventsManager.Instance.IsCurrentEvent(eventConfig)) continue;
-                            inputTriggered = true;
+
+                            switch (eventConfig)
+                            {
+                                case InputActionEvent action:
+                                    var currentInputAction = EventsManager.Instance.CurrentTriggeredEventConfig as InputActionEvent;
+                                    inputTriggered = action.Input == currentInputAction.Input;
+                                    break;
+                                case InputFloatValueEvent floatValue:
+                                    var currentInputFloat = EventsManager.Instance.CurrentTriggeredEventConfig as InputFloatValueEvent;
+                                    inputTriggered = floatValue.Input == currentInputFloat.Input;
+                                    break;
+                                case InputVectorValueEvent vectorValue:
+                                    var currentInputVector = EventsManager.Instance.CurrentTriggeredEventConfig as InputVectorValueEvent;
+                                    inputTriggered = vectorValue.Input == currentInputVector.Input;
+                                    break;
+                                default:
+                                    Debug.LogError($"{nameof(eventConfig)} is currently not supported by this version of await input node.");
+                                    break;
+                            }
                         }
+
                         await Task.Yield();
                     }
+
+                    if (timedOut)
+                        ExecuteNextGraphNode(node, waitForInput.TimedOutEventName);
+                    else
+                        ExecuteNextGraphNode(node);
                 }
                 else
-                {
-
-                }
-                ExecuteNextGraphNode(node);
+                    Debug.LogError($"Wait for event failed. There are no events assigned for {nameof(waitForInput.InputActions)}");
                 break;
             case ScreenStateNode screen:
                 EventsManager.Instance.OnScreenConfigurationEvent?.Invoke(screen.Config);

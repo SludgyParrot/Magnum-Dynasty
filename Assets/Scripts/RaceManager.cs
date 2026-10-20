@@ -55,6 +55,8 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
     {
         if(!RaceInProgress) return;
         OnRaceTimeUpdate();
+
+        if(PlayerVehicle == null) return;
         OnUpdateRaceInfo();
     }
 

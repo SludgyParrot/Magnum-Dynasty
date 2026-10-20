@@ -189,7 +189,7 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
         while (Mathf.Abs((view.sizeDelta - sizeDelta).magnitude) > TRANSLATE_DISTANCE_THRESHOLD)
         {
             view.sizeDelta = Vector2.Lerp(view.sizeDelta, sizeDelta, translateSpeed * Time.deltaTime);
-            Debug.Log($"~Size Delta - Speed: {translateSpeed} - Distance: {(view.sizeDelta - sizeDelta).magnitude}");
+            Debug.Log($"~{view.name} Size Delta - Speed: {translateSpeed} - Distance: {(view.sizeDelta - sizeDelta).magnitude}");
             await Task.Yield();
         }
 
