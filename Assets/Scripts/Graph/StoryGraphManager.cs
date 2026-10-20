@@ -29,7 +29,6 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         onGraphCompletedEvent;
 
     CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
-    private float deltaTime = 0;
 
     private void OnEnable()
         => EventsManager.Instance.OnTriggeredEvent.AddListener(OnGraphEntry);
@@ -44,8 +43,6 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
     {
         if(graphs.Count == 0) return;
         InitializeGraphs();
-
-        deltaTime = Time.deltaTime;
     }
 
     private void InitializeGraphs()
@@ -106,7 +103,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
 
                     if (eventHasATimeOut)
                     {
-                        eventsTimeOut -= 1 * deltaTime;
+                        eventsTimeOut -= 1 * Time.unscaledDeltaTime;
                         eventTimedOut = eventsTimeOut <= 0.0f;
                         if (eventTimedOut)
                             eventsTriggered = true;
@@ -139,7 +136,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                     {
                         if(hasTimeOut)
                         {
-                            timeOut -= 1 * deltaTime;
+                            timeOut -= 1 * Time.unscaledDeltaTime;
                             timedOut = timeOut <= 0.0f;
 
                             if (timedOut)

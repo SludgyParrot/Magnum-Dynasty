@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
+using System.Threading;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(CanvasGroup))]
@@ -23,8 +24,14 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     private Canvas viewCanvas;
     private CanvasGroup viewGroup;
 
+    private CancellationTokenSource cancellationTokenSource = 
+        new CancellationTokenSource();
+
     private const float TRANSLATE_DISTANCE_THRESHOLD = 
         0.01f;
+
+    private void OnDisable()
+        => cancellationTokenSource.Cancel();
 
     public void Initialize()
     {
@@ -115,11 +122,11 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     {
         float opacity = state == UIViewState.Show ? 1.0f : 0.0f;
 
-        while (!Mathf.Approximately(viewGroup.alpha, opacity))
+        while (!Mathf.Approximately(viewGroup.alpha, opacity) && !cancellationTokenSource.IsCancellationRequested)
         {
             viewGroup.alpha = Mathf.MoveTowards(viewGroup.alpha,
                 opacity,
-                fadeSpeed * Time.deltaTime);
+                fadeSpeed * Time.unscaledDeltaTime);
 
             await Task.Yield();
         }
@@ -160,9 +167,9 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     {
         if (view == null) return;
 
-        while ((view.anchoredPosition - anchoredPosition).magnitude > TRANSLATE_DISTANCE_THRESHOLD)
+        while ((view.anchoredPosition - anchoredPosition).magnitude > TRANSLATE_DISTANCE_THRESHOLD && !cancellationTokenSource.IsCancellationRequested)
         {
-            view.anchoredPosition = Vector2.Lerp(view.anchoredPosition, anchoredPosition, translateSpeed * Time.deltaTime);
+            view.anchoredPosition = Vector2.Lerp(view.anchoredPosition, anchoredPosition, translateSpeed * Time.unscaledDeltaTime);
             await Task.Yield();
         }
 
@@ -173,9 +180,9 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     {
         if (view == null) return;
 
-        while ((view.eulerAngles - rotation.eulerAngles).magnitude > TRANSLATE_DISTANCE_THRESHOLD)
+        while ((view.eulerAngles - rotation.eulerAngles).magnitude > TRANSLATE_DISTANCE_THRESHOLD && !cancellationTokenSource.IsCancellationRequested)
         {
-            view.eulerAngles = Vector3.Slerp(view.eulerAngles, rotation.eulerAngles, translateSpeed * Time.deltaTime);
+            view.eulerAngles = Vector3.Slerp(view.eulerAngles, rotation.eulerAngles, translateSpeed * Time.unscaledDeltaTime);
             await Task.Yield();
         }
 
@@ -186,9 +193,9 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     {
         if (view == null) return;
 
-        while (Mathf.Abs((view.sizeDelta - sizeDelta).magnitude) > TRANSLATE_DISTANCE_THRESHOLD)
+        while (Mathf.Abs((view.sizeDelta - sizeDelta).magnitude) > TRANSLATE_DISTANCE_THRESHOLD && !cancellationTokenSource.IsCancellationRequested)
         {
-            view.sizeDelta = Vector2.Lerp(view.sizeDelta, sizeDelta, translateSpeed * Time.deltaTime);
+            view.sizeDelta = Vector2.Lerp(view.sizeDelta, sizeDelta, translateSpeed * Time.unscaledDeltaTime);
             Debug.Log($"~{view.name} Size Delta - Speed: {translateSpeed} - Distance: {(view.sizeDelta - sizeDelta).magnitude}");
             await Task.Yield();
         }
