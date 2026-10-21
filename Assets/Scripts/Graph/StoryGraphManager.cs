@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
 {
@@ -82,9 +83,25 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 EventsManager.Instance.OnDisplayTooltipEvent?.Invoke(tooltip.Config);
                 ExecuteNextGraphNode(node);
                 break;
-            case TriggerEventNode triggerEvent:
-                EventsManager.Instance.OnTriggeredEvent?.Invoke(triggerEvent.Event);
-                ExecuteNextGraphNode(node);
+            case TriggerEventsNode triggerEvent:
+                if (triggerEvent.Events != null && triggerEvent.Events.Count > 0)
+                {
+                    foreach (var eventConfig in triggerEvent.Events)
+                        EventsManager.Instance.OnTriggeredEvent?.Invoke(eventConfig);
+                    ExecuteNextGraphNode(node);
+                }
+                else
+                    Debug.LogError($"Trigger events failed. There are no events assigned for {nameof(triggerEvent.Events)}");
+                break;
+            case ScreenEventsNode screenEvents:
+                if(screenEvents.Events != null &&  screenEvents.Events.Count > 0)
+                {
+                    foreach (var eventConfig in screenEvents.Events)
+                        EventsManager.Instance.OnTriggeredEvent?.Invoke(eventConfig);
+                    ExecuteNextGraphNode(node);
+                }
+                else
+                    Debug.LogError($"Send screen event failed. There are no events assigned for {nameof(screenEvents.Events)}");
                 break;
             case WaitForSecondsNode waitForSeconds:
                 await Task.Delay(waitForSeconds.Seconds.ToMilliseconds());
