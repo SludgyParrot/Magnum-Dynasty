@@ -138,7 +138,8 @@ public enum ScreenUIType
     MatchHUD,
     CollactableHUD,
     TutorialRightHUD,
-    TutorialLeftHUD
+    TutorialLeftHUD,
+    WeaponsMenuHUD
 }
 
 public enum UIViewState

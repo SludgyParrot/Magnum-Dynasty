@@ -212,7 +212,7 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 if(exit.ExitGraph != null)
                 {
                     currentGraph = exit.ExitGraph;
-                    ExecuteGraphNode(currentGraph.Entry);
+                    ExecuteNextGraphNode(exit.ExitGraph.Entry);
                 }
                 break;
             case CompleteNode complete:
