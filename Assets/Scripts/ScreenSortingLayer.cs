@@ -136,7 +136,9 @@ public enum ScreenUIType
     None,
     MusicPlayerPreview,
     MatchHUD,
-    CollactableHUD
+    CollactableHUD,
+    TutorialRightHUD,
+    TutorialLeftHUD
 }
 
 public enum UIViewState

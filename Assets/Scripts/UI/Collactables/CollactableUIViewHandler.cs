@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 
 [DisallowMultipleComponent]
-public sealed class CollactableUIViewConfigurationHandler : MonoBehaviour
+public sealed class CollactableUIViewHandler : UIView
 {
     [SerializeField]
     private TextMeshProUGUI itemNameDisplayer;
@@ -14,7 +14,7 @@ public sealed class CollactableUIViewConfigurationHandler : MonoBehaviour
     [SerializeField, Space(5)]
     private Image thumbnailDisplayer;
 
-    public void Configure(ScreenContentConfig screenContent)
+    public override void Configure(ScreenContentConfig screenContent)
     {
         if (screenContent == null) return;
 
