@@ -40,18 +40,6 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
         cancellationTokenSource.Cancel();
     }
 
-    private void Start()
-    {
-        if(graphs.Count == 0) return;
-        InitializeGraphs();
-    }
-
-    private void InitializeGraphs()
-    {
-        foreach (var graph in graphs) 
-            graph.Initialize();
-    }
-
     private void OnGraphEntry(EventConfig entry)
     {
         if(entry == null || graphs.Count == 0) return;

@@ -46648,7 +46648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 650, y: 0}
+  m_AnchoredPosition: {x: -50, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1145947728
@@ -80051,11 +80051,11 @@ MonoBehaviour:
   scrollRightInput: {fileID: 2984085576921118876, guid: 8978473f4bc263a46a137084aacfa069,
     type: 3}
   wheelItems:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 349671703}
+  - {fileID: 1432974927}
+  - {fileID: 558691423}
+  - {fileID: 612081719}
+  - {fileID: 1997231813}
 --- !u!1 &2055748204 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6733004877937815836, guid: 789666880ec257c4a8daacb1857d6e89,
