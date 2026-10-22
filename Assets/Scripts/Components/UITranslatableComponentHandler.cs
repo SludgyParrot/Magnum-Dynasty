@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine;
 using System.Threading;
+using UnityEngine.Events;
 
 [DisallowMultipleComponent]
 [RequireComponent(typeof(CanvasGroup))]
@@ -19,6 +20,15 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     [SerializeField, Space(5)]
     private UIViewState defaultState = 
         UIViewState.Hide;
+
+    [SerializeField, Space(5)]
+    private UnityEvent onShowTransitionStartedEvent = new UnityEvent(),
+        onHideTransitionStartedEvent = new UnityEvent(),
+        onShowTransitionEndedEvent = new UnityEvent(),
+        onHideTransitionEndedEvent = new UnityEvent();
+
+    [SerializeField, Space(5)]
+    private float eventTriggerDelayDuration;
 
     private RectTransform view;
     private Canvas viewCanvas;
@@ -105,7 +115,12 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
 
         await Task.Delay(poseReference.TransitionDelay.ToMilliseconds());
 
-        switch(poseReference.TransitionType)
+        if(state == UIViewState.Show) 
+            onShowTransitionStartedEvent?.Invoke();
+        else
+            onHideTransitionStartedEvent?.Invoke();
+
+        switch (poseReference.TransitionType)
         {
             case ScreenUITransitionType.Fade:
                 await OnScreenUIFadeAsync(state,
@@ -118,6 +133,11 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
                 SetUILayoutState(state == UIViewState.Show);
                 break;
         }
+
+        if (state == UIViewState.Show)
+            onShowTransitionEndedEvent?.Invoke();
+        else
+            onHideTransitionEndedEvent?.Invoke();
     }
 
     private async Task OnScreenUIFadeAsync(UIViewState state, float fadeSpeed)
@@ -134,6 +154,11 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
         }
 
         viewGroup.alpha = opacity;
+
+        if(state == UIViewState.Show) 
+            onShowTransitionEndedEvent?.Invoke();
+        else
+            onHideTransitionEndedEvent?.Invoke();
     }
 
     private async Task OnScreenUITranslateAsync(UIRectTransformPoseReference reference)

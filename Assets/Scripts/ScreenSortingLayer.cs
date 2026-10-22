@@ -163,3 +163,10 @@ public enum TranslatePropertyType
     Rotation,
     Scale
 }
+
+public enum AnimationType
+{
+    Default,
+    Loop,
+    Randomized
+}

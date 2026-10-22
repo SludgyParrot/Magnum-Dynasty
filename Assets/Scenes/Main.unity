@@ -3568,7 +3568,6 @@ MonoBehaviour:
   layout: {fileID: 69855419}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -3577,9 +3576,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -3588,8 +3587,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 5
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!114 &69855426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5958,7 +5971,6 @@ MonoBehaviour:
   layout: {fileID: 98004516}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 50, y: -50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -5967,9 +5979,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 50, y: 150}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -5978,8 +5990,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &98004519
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -11309,7 +11335,6 @@ MonoBehaviour:
   layout: {fileID: 226438853}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -11318,9 +11343,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: -150}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -11329,8 +11354,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &226438856
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -13643,7 +13682,6 @@ MonoBehaviour:
   layout: {fileID: 349671699}
   translatePoseReferences:
   - name: Scale UI
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 250, y: 250}
@@ -13652,9 +13690,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Shrink UI
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 200, y: 200}
@@ -13663,8 +13701,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &349671702
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15934,7 +15986,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -56.150024}
-  m_SizeDelta: {x: 406.2, y: 112.3}
+  m_SizeDelta: {x: 650, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &370508756
 MonoBehaviour:
@@ -15949,7 +16001,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.28635636, g: 0.36920607, b: 0.4245283, a: 0.34901962}
+  m_Color: {r: 0.7475803, g: 0.8207547, b: 0.07355818, a: 0.02745098}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15958,7 +16010,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: b162df5e59180d04db2511fbb1d29d67, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -16708,7 +16760,6 @@ MonoBehaviour:
   layout: {fileID: 390086739}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: -50, y: -50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -16717,9 +16768,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: -50, y: 125}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -16728,8 +16779,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &390086742
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -19293,7 +19358,6 @@ MonoBehaviour:
   layout: {fileID: 491339359}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 50, y: 50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -19302,9 +19366,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: -300, y: 50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -19313,8 +19377,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &491339362
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -21585,7 +21663,6 @@ MonoBehaviour:
   layout: {fileID: 558691419}
   translatePoseReferences:
   - name: Scale UI
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 385, y: 250}
@@ -21594,9 +21671,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Shrink UI
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 335, y: 200}
@@ -21605,8 +21682,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &558691422
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -23890,7 +23981,6 @@ MonoBehaviour:
   layout: {fileID: 612081715}
   translatePoseReferences:
   - name: Scale UI
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 250, y: 250}
@@ -23899,9 +23989,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Shrink UI
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 200, y: 200}
@@ -23910,8 +24000,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &612081718
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -24293,18 +24397,17 @@ MonoBehaviour:
   layout: {fileID: 621312368}
   translatePoseReferences:
   - name: UI Show
+    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+    <SizeDelta>k__BackingField: {x: 0, y: 0}
+    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
+    <TranslateProperty>k__BackingField: 0
+    <TransitionType>k__BackingField: 0
+    <TransitionDuration>k__BackingField: 0
+    <TransitionDelay>k__BackingField: 0
+    <CompletionDistanceThreshold>k__BackingField: 0.1
     <State>k__BackingField: 0
-    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
-    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
-    <SizeDelta>k__BackingField: {x: 0, y: 0}
-    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
-    <TranslateProperty>k__BackingField: 0
-    <TransitionType>k__BackingField: 0
-    <TransitionDuration>k__BackingField: 0
-    <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hide
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -24313,8 +24416,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!114 &621312371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28028,18 +28145,17 @@ MonoBehaviour:
   layout: {fileID: 665345782}
   translatePoseReferences:
   - name: UI Show
+    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+    <SizeDelta>k__BackingField: {x: 0, y: 0}
+    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
+    <TranslateProperty>k__BackingField: 0
+    <TransitionType>k__BackingField: 0
+    <TransitionDuration>k__BackingField: 0
+    <TransitionDelay>k__BackingField: 0
+    <CompletionDistanceThreshold>k__BackingField: 0.1
     <State>k__BackingField: 0
-    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
-    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
-    <SizeDelta>k__BackingField: {x: 0, y: 0}
-    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
-    <TranslateProperty>k__BackingField: 0
-    <TransitionType>k__BackingField: 0
-    <TransitionDuration>k__BackingField: 0
-    <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hide
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -28048,8 +28164,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!1 &666004759 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -9191746893154465600, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -39075,7 +39205,6 @@ MonoBehaviour:
   layout: {fileID: 939675529}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: -50, y: 50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -39084,9 +39213,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 385, y: 50}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -39095,8 +39224,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &939675532
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -40047,7 +40190,6 @@ MonoBehaviour:
   layout: {fileID: 977042004}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: -50, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -40056,9 +40198,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 650, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -40067,8 +40209,46 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1108198735}
+        m_TargetAssemblyTypeName: UITransformTween, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1108198735}
+        m_TargetAssemblyTypeName: UITransformTween, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &977042007
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -40625,7 +40805,6 @@ MonoBehaviour:
   layout: {fileID: 995914242}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -40634,9 +40813,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -40645,8 +40824,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 2
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!114 &995914249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40858,7 +41051,6 @@ MonoBehaviour:
   layout: {fileID: 484105605}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: -250, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -40867,9 +41059,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 1
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 250, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -40878,8 +41070,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &998241203
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -45483,6 +45689,7 @@ GameObject:
   - component: {fileID: 1108198732}
   - component: {fileID: 1108198734}
   - component: {fileID: 1108198733}
+  - component: {fileID: 1108198735}
   m_Layer: 5
   m_Name: __Icon Displayer
   m_TagString: Untagged
@@ -45547,6 +45754,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108198731}
   m_CullTransparentMesh: 1
+--- !u!114 &1108198735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108198731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733a41b20ccaa2e47b5fbea75d77c0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layout: {fileID: 1108198732}
+  animationType: 1
+  animationPoseReferences:
+  - name: 'Start '
+    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+    <SizeDelta>k__BackingField: {x: 100, y: 100}
+    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
+    <TranslateProperty>k__BackingField: 4
+    <TransitionType>k__BackingField: 0
+    <TransitionDuration>k__BackingField: 2
+    <TransitionDelay>k__BackingField: 0
+    <CompletionDistanceThreshold>k__BackingField: 6
+  - name: End
+    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+    <SizeDelta>k__BackingField: {x: 75, y: 75}
+    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
+    <TranslateProperty>k__BackingField: 0
+    <TransitionType>k__BackingField: 0
+    <TransitionDuration>k__BackingField: 2
+    <TransitionDelay>k__BackingField: 0
+    <CompletionDistanceThreshold>k__BackingField: 6
 --- !u!1 &1108219490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6794000714120784489, guid: 789666880ec257c4a8daacb1857d6e89,
@@ -46710,7 +46952,6 @@ MonoBehaviour:
   layout: {fileID: 1145947726}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 650, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -46719,9 +46960,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.1
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: -50, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -46730,8 +46971,46 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.1
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1206235496}
+        m_TargetAssemblyTypeName: UITransformTween, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1206235496}
+        m_TargetAssemblyTypeName: UITransformTween, Assembly-CSharp
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &1145947730
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -47552,7 +47831,6 @@ MonoBehaviour:
   layout: {fileID: 1176180950}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: -85}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -47561,9 +47839,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 125}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -47572,8 +47850,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &1176180955
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -48308,6 +48600,7 @@ GameObject:
   - component: {fileID: 1206235493}
   - component: {fileID: 1206235495}
   - component: {fileID: 1206235494}
+  - component: {fileID: 1206235496}
   m_Layer: 5
   m_Name: __Icon Displayer
   m_TagString: Untagged
@@ -48332,7 +48625,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -538, y: 31}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206235494
 MonoBehaviour:
@@ -48372,6 +48665,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206235492}
   m_CullTransparentMesh: 1
+--- !u!114 &1206235496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206235492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 733a41b20ccaa2e47b5fbea75d77c0a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layout: {fileID: 1206235493}
+  animationType: 1
+  animationPoseReferences:
+  - name: 'Start '
+    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+    <SizeDelta>k__BackingField: {x: 100, y: 100}
+    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
+    <TranslateProperty>k__BackingField: 4
+    <TransitionType>k__BackingField: 0
+    <TransitionDuration>k__BackingField: 2
+    <TransitionDelay>k__BackingField: 0
+    <CompletionDistanceThreshold>k__BackingField: 6
+  - name: End
+    <AnchoredPosition>k__BackingField: {x: 0, y: 0}
+    <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
+    <SizeDelta>k__BackingField: {x: 75, y: 75}
+    <PoseOverrideRectTransform>k__BackingField: {fileID: 0}
+    <TranslateProperty>k__BackingField: 0
+    <TransitionType>k__BackingField: 0
+    <TransitionDuration>k__BackingField: 2
+    <TransitionDelay>k__BackingField: 0
+    <CompletionDistanceThreshold>k__BackingField: 6
 --- !u!1 &1207661180
 GameObject:
   m_ObjectHideFlags: 0
@@ -58502,7 +58830,6 @@ MonoBehaviour:
   layout: {fileID: 1432974923}
   translatePoseReferences:
   - name: Scale UI
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 250, y: 250}
@@ -58511,9 +58838,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Shrink UI
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 200, y: 200}
@@ -58522,8 +58849,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &1432974926
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -72451,7 +72792,6 @@ MonoBehaviour:
   layout: {fileID: 1892961073}
   translatePoseReferences:
   - name: UI Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -72460,9 +72800,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: UI Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -72471,8 +72811,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 2
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!114 &1892961076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76601,7 +76955,6 @@ MonoBehaviour:
   layout: {fileID: 1540108764}
   translatePoseReferences:
   - name: Music Main Panel Show
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -76610,9 +76963,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Music Main Panel Hide
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -76621,8 +76974,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 5
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!114 &1960126886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77455,7 +77822,6 @@ MonoBehaviour:
   layout: {fileID: 376544020}
   translatePoseReferences:
   - name: Menu Shown
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 600, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -77464,9 +77830,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 2
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Menu Hidden
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 0, y: 0}
@@ -77475,8 +77841,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &1981825298
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -77819,7 +78199,6 @@ MonoBehaviour:
   layout: {fileID: 1997231809}
   translatePoseReferences:
   - name: Scale UI
-    <State>k__BackingField: 0
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 250, y: 250}
@@ -77828,9 +78207,9 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 0
   - name: Shrink UI
-    <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
     <Rotation>k__BackingField: {x: 0, y: 0, z: 0, w: 0}
     <SizeDelta>k__BackingField: {x: 200, y: 200}
@@ -77839,8 +78218,22 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
-    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
+    <CompletionDistanceThreshold>k__BackingField: 0.1
+    <State>k__BackingField: 1
   defaultState: 1
+  onShowTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionStartedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onShowTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onHideTransitionEndedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  eventTriggerDelayDuration: 0
 --- !u!225 &1997231812
 CanvasGroup:
   m_ObjectHideFlags: 0
