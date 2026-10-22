@@ -3577,6 +3577,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -3587,6 +3588,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 5
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!114 &69855426
 MonoBehaviour:
@@ -5965,6 +5967,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 50, y: 150}
@@ -5975,6 +5978,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &98004519
 CanvasGroup:
@@ -11314,6 +11318,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: -150}
@@ -11324,6 +11329,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &226438856
 CanvasGroup:
@@ -13646,6 +13652,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Shrink UI
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -13656,6 +13663,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &349671702
 CanvasGroup:
@@ -16709,6 +16717,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: -50, y: 125}
@@ -16719,6 +16728,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &390086742
 CanvasGroup:
@@ -19292,6 +19302,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: -300, y: 50}
@@ -19302,6 +19313,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &491339362
 CanvasGroup:
@@ -21582,6 +21594,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Shrink UI
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -21592,6 +21605,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &558691422
 CanvasGroup:
@@ -23885,6 +23899,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Shrink UI
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -23895,6 +23910,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &612081718
 CanvasGroup:
@@ -24286,6 +24302,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hide
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -24296,6 +24313,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!114 &621312371
 MonoBehaviour:
@@ -28019,6 +28037,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hide
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -28029,6 +28048,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!1 &666004759 stripped
 GameObject:
@@ -39064,6 +39084,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 385, y: 50}
@@ -39074,6 +39095,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &939675532
 CanvasGroup:
@@ -40034,6 +40056,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 650, y: 0}
@@ -40044,6 +40067,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &977042007
 CanvasGroup:
@@ -40610,6 +40634,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -40620,6 +40645,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 2
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!114 &995914249
 MonoBehaviour:
@@ -40841,6 +40867,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 1
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 250, y: 0}
@@ -40851,6 +40878,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &998241203
 CanvasGroup:
@@ -46691,6 +46719,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.1
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: -50, y: 0}
@@ -46701,6 +46730,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.1
   defaultState: 1
 --- !u!225 &1145947730
 CanvasGroup:
@@ -47531,6 +47561,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 125}
@@ -47541,6 +47572,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &1176180955
 CanvasGroup:
@@ -58479,6 +58511,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Shrink UI
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -58489,6 +58522,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &1432974926
 CanvasGroup:
@@ -72426,6 +72460,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: UI Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -72436,6 +72471,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 2
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!114 &1892961076
 MonoBehaviour:
@@ -76574,6 +76610,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Music Main Panel Hide
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -76584,6 +76621,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 0
     <TransitionDuration>k__BackingField: 0
     <TransitionDelay>k__BackingField: 5
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!114 &1960126886
 MonoBehaviour:
@@ -77426,6 +77464,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 2
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Menu Hidden
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -77436,6 +77475,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 2.5
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &1981825298
 CanvasGroup:
@@ -77788,6 +77828,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   - name: Shrink UI
     <State>k__BackingField: 1
     <AnchoredPosition>k__BackingField: {x: 0, y: 0}
@@ -77798,6 +77839,7 @@ MonoBehaviour:
     <TransitionType>k__BackingField: 2
     <TransitionDuration>k__BackingField: 10
     <TransitionDelay>k__BackingField: 0
+    <TransitionCompletionDistanceThreshold>k__BackingField: 0.01
   defaultState: 1
 --- !u!225 &1997231812
 CanvasGroup:

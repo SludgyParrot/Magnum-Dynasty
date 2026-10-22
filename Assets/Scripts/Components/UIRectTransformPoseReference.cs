@@ -33,4 +33,7 @@ public sealed class UIRectTransformPoseReference
 
     [field: SerializeField]
     public float TransitionDelay { get; private set; }
+
+    [field: SerializeField]
+    public float CompletionDistanceThreshold { get; private set; } = 0.1f;
 }

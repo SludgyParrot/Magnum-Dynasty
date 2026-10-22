@@ -30,6 +30,8 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
     private const float TRANSLATE_DISTANCE_THRESHOLD = 
         0.01f;
 
+    private bool inTransition;
+
     private void OnDisable()
         => cancellationTokenSource.Cancel();
 
@@ -143,64 +145,99 @@ public sealed class UITranslatableComponentHandler : MonoBehaviour
         switch (reference.TranslateProperty)
         {
             case TranslatePropertyType.Position:
-                await TranslatePositionAsync(anchoredPosition, reference.TransitionDuration);
+                await TranslatePositionAsync(anchoredPosition,
+                    reference.TransitionDuration, 
+                    reference.CompletionDistanceThreshold);
                 break;
             case TranslatePropertyType.Rotation:
-                await TranslateRotationAsync(rotation, reference.TransitionDuration);
+                await TranslateRotationAsync(rotation, 
+                    reference.TransitionDuration, 
+                    reference.CompletionDistanceThreshold);
                 break;
             case TranslatePropertyType.Scale:
-                await TranslateScaleAsync(sizeDelta, reference.TransitionDuration);
+                await TranslateScaleAsync(sizeDelta, 
+                    reference.TransitionDuration,
+                    reference.CompletionDistanceThreshold);
                 break;
             default:
                 var tasks = new List<Task>
                 {
-                    TranslatePositionAsync(anchoredPosition, reference.TransitionDuration),
-                    TranslateRotationAsync(rotation, reference.TransitionDuration),
-                    TranslateScaleAsync(sizeDelta, reference.TransitionDuration)
+                    TranslatePositionAsync(anchoredPosition, reference.TransitionDuration, 
+                    reference.CompletionDistanceThreshold),
+                    TranslateRotationAsync(rotation, reference.TransitionDuration, 
+                    reference.CompletionDistanceThreshold),
+                    TranslateScaleAsync(sizeDelta, reference.TransitionDuration, 
+                    reference.CompletionDistanceThreshold)
                 };
                 await Task.WhenAll(tasks);
                 break;
         }
     }
 
-    private async Task TranslatePositionAsync(Vector2 anchoredPosition, float translateSpeed)
+    private async Task TranslatePositionAsync(Vector2 anchoredPosition,
+        float translateSpeed,
+        float translateDistanceThreshold = 0.01f)
     {
         if (view == null) return;
 
-        while ((view.anchoredPosition - anchoredPosition).magnitude > TRANSLATE_DISTANCE_THRESHOLD && !cancellationTokenSource.IsCancellationRequested)
+        while(inTransition &&
+            !cancellationTokenSource.IsCancellationRequested)
+            await Task.Yield();
+
+        while ((view.anchoredPosition - anchoredPosition).magnitude > translateDistanceThreshold && 
+            !cancellationTokenSource.IsCancellationRequested)
         {
+            inTransition = true;
             view.anchoredPosition = Vector2.Lerp(view.anchoredPosition, anchoredPosition, translateSpeed * Time.unscaledDeltaTime);
             await Task.Yield();
         }
 
         view.anchoredPosition = anchoredPosition;
+        inTransition = false;
     }
 
-    private async Task TranslateRotationAsync(Quaternion rotation, float translateSpeed)
+    private async Task TranslateRotationAsync(Quaternion rotation, 
+        float translateSpeed,
+        float translateDistanceThreshold = 0.01f)
     {
         if (view == null) return;
 
-        while ((view.eulerAngles - rotation.eulerAngles).magnitude > TRANSLATE_DISTANCE_THRESHOLD && !cancellationTokenSource.IsCancellationRequested)
+        while (inTransition &&
+          !cancellationTokenSource.IsCancellationRequested)
+            await Task.Yield();
+
+        while ((view.eulerAngles - rotation.eulerAngles).magnitude > translateDistanceThreshold &&
+            !cancellationTokenSource.IsCancellationRequested)
         {
+            inTransition = true;
             view.eulerAngles = Vector3.Slerp(view.eulerAngles, rotation.eulerAngles, translateSpeed * Time.unscaledDeltaTime);
             await Task.Yield();
         }
 
         view.eulerAngles = rotation.eulerAngles;
+        inTransition = false;
     }
 
-    private async Task TranslateScaleAsync(Vector2 sizeDelta, float translateSpeed)
+    private async Task TranslateScaleAsync(Vector2 sizeDelta, 
+        float translateSpeed, 
+        float translateDistanceThreshold = 0.01f)
     {
         if (view == null) return;
 
-        while (Mathf.Abs((view.sizeDelta - sizeDelta).magnitude) > TRANSLATE_DISTANCE_THRESHOLD && !cancellationTokenSource.IsCancellationRequested)
+        while (inTransition && 
+            !cancellationTokenSource.IsCancellationRequested)
+            await Task.Yield();
+
+        while (Mathf.Abs((view.sizeDelta - sizeDelta).magnitude) > translateDistanceThreshold &&
+            !cancellationTokenSource.IsCancellationRequested)
         {
+            inTransition = true;
             view.sizeDelta = Vector2.Lerp(view.sizeDelta, sizeDelta, translateSpeed * Time.unscaledDeltaTime);
-            Debug.Log($"~{view.name} Size Delta - Speed: {translateSpeed} - Distance: {(view.sizeDelta - sizeDelta).magnitude}");
             await Task.Yield();
         }
 
         view.sizeDelta = sizeDelta;
+        inTransition = false;
     }
 
     private (UIRectTransformPoseReference reference, string errorMessage) GetReferencePose(UIViewState state)
