@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using XNode;
@@ -6,7 +5,17 @@ using XNode;
 [CreateAssetMenu(fileName = "Story Graph", menuName = "Parrot Code/Story Graph")]
 public sealed class StoryGraph : NodeGraph 
 {
-    public EntryNode Entry {  get; private set; }
+    private EntryNode entry;
+
+    public EntryNode Entry
+    {
+        get
+        {
+            if(entry == null)
+                entry = nodes?.OfType<EntryNode>().FirstOrDefault();
+            return entry;
+        }
+    }
 
     public bool Completed { get; private set; }
 

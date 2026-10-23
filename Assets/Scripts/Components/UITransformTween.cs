@@ -24,6 +24,7 @@ public sealed class UITransformTween : MonoBehaviour
 
     private void OnDisable()
     {
+        if (cancellationTokenSource == null) return;
         cancellationTokenSource.Cancel();
     }
 
