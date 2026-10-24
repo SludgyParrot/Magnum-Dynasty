@@ -28,6 +28,9 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
     [SerializeField, Space(5)]
     private UnityEvent<string, string> onRaceInfoValueChangedEvent;
 
+    [SerializeField, Space(5)]
+    private UnityEvent<int> onCheckpointReachedEvent;
+
     public List<Vehicle> Vehicles => vehicles;
 
     private List<RaceData> raceDataList = 
@@ -104,6 +107,11 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
     {
         if (matchCompletionEventConfig == null) return;
         EventsManager.Instance.OnTriggeredEvent?.Invoke(matchCompletionEventConfig);
+    }
+
+    public void OnCheckpointReached(int lapIndex)
+    {
+        onCheckpointReachedEvent?.Invoke(lapIndex);
     }
 
     public int GetRacePosition(Vehicle vehicle)

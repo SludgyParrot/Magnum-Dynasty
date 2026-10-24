@@ -270,10 +270,17 @@ public sealed class Vehicle : MonoBehaviour
                 currentPathIndex = 0;
 
                 if (CurrentLap < RaceManager.Instance.TotalLaps)
+                {
                     CurrentLap++;
+
+                    if(PlayerManager.Instance.Player == this)
+                        RaceManager.Instance.OnCheckpointReached(CurrentLap);
+                }
                 else
                 {
-                    RaceData raceData = new RaceData(ProfileManager.Instance.SelectedProfile.ProfileName,
+                    string profileName = PlayerManager.Instance.Player == this? ProfileManager.Instance.SelectedProfile.ProfileName: name;
+
+                    RaceData raceData = new RaceData(profileName,
                           RaceManager.Instance.GetRacePosition(this), RaceManager.Instance.RaceTimeStamp,
                           RaceStatus.Completed, RaceManager.Instance.GetRaceOutcomeStatus(this));
 

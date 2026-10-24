@@ -444,7 +444,7 @@ MonoBehaviour:
   m_Name: Exit
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 840, y: 760}
+  position: {x: 1080, y: 760}
   ports:
     keys:
     - input
@@ -1126,6 +1126,52 @@ MonoBehaviour:
   input: 0
   _if: 0
   _else: 0
+--- !u!114 &-595468135539013231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27400be2e72a92c4da5221c13cde5715, type: 3}
+  m_Name: Wait For Seconds
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 568, y: 760}
+  ports:
+    keys:
+    - input
+    - output
+    values:
+    - _fieldName: input
+      _node: {fileID: -595468135539013231}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: output
+        node: {fileID: 1886334066849747546}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: output
+      _node: {fileID: -595468135539013231}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: input
+        node: {fileID: 2538668663549746059}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: 0
+  output: 0
+  <Seconds>k__BackingField: 3
 --- !u!114 &-62650122964917347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1252,6 +1298,7 @@ MonoBehaviour:
   - {fileID: 4278809357259613461}
   - {fileID: 2538668663549746059}
   - {fileID: 1886334066849747546}
+  - {fileID: -595468135539013231}
 --- !u!114 &602505324716284318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1569,7 +1616,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: input
-        node: {fileID: 2538668663549746059}
+        node: {fileID: -595468135539013231}
         reroutePoints: []
       _direction: 1
       _connectionType: 0
@@ -1731,7 +1778,7 @@ MonoBehaviour:
   m_Name: Game Time
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: 584, y: 760}
+  position: {x: 824, y: 760}
   ports:
     keys:
     - input
@@ -1743,7 +1790,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       connections:
       - fieldName: output
-        node: {fileID: 1886334066849747546}
+        node: {fileID: -595468135539013231}
         reroutePoints: []
       _direction: 0
       _connectionType: 0
