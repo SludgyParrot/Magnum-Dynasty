@@ -17,7 +17,10 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         raceLapInfoStringFormat;
 
     [SerializeField, Space(5)]
-    private MatchCompletedEvent matchEventConfig;
+    private MatchStartedEvent matchStartedEventConfig;
+
+    [SerializeField, Space(5)]
+    private MatchCompletedEvent matchCompletionEventConfig;
 
     [SerializeField, Space(5)]
     private UnityEvent<string> onRaceTimeValueChangedEvent;
@@ -103,9 +106,30 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         return vehicles.IndexOf(vehicle) + 1;
     }
 
-    public void CompleteRace()
+    public void SetMatchStatus(RaceStatus status)
     {
-        if (matchEventConfig == null) return;
-        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchEventConfig);
+        switch(status)
+        {
+            case RaceStatus.Started:
+                StartRace();
+                break;
+            case RaceStatus.InProgress:
+                break;
+            case RaceStatus.Completed:
+                CompleteRace();
+                break;
+        }
+    }
+
+    private void StartRace()
+    {
+        if (matchStartedEventConfig == null) return;
+        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchStartedEventConfig);
+    }
+
+    private void CompleteRace()
+    {
+        if (matchCompletionEventConfig == null) return;
+        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchCompletionEventConfig);
     }
 }

@@ -70,7 +70,7 @@ public sealed class PlayerManager : SingletonInstance<PlayerManager>
             selectedPlayer.OnMisteryBoxAppliedEvent?.RemoveListener(OnMisteryBoxEvent);
         }
 
-        newPlayer.InitializeInputs(true);
+        // newPlayer.InitializeInputs(true);
         newPlayer.OnMisteryBoxAppliedEvent?.AddListener(OnMisteryBoxEvent);
 
         selectedPlayer = newPlayer;

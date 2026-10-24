@@ -202,9 +202,9 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 break;
             case IsFTUENode isFTUE:
                 if(GameManager.Instance.GameData.FTUE)
-                    ExecuteNextGraphNode(node);
+                    ExecuteNextGraphNode(node, isFTUE.PrimaryOutputPortName);
                 else
-                    ExecuteNextGraphNode(node, "output2");
+                    ExecuteNextGraphNode(node, isFTUE.SecondaryOutputPortName);
                 break;
             case ExitNode exit:
                 if(exit.ExitGraph != null)

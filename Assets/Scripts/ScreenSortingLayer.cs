@@ -170,3 +170,10 @@ public enum AnimationType
     Loop,
     Randomized
 }
+
+public enum RaceStatus
+{
+    Started,
+    InProgress,
+    Completed
+}

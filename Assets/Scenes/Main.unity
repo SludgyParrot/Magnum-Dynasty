@@ -21708,6 +21708,7 @@ MonoBehaviour:
         m_CallState: 2
   <CurrentLap>k__BackingField: 0
   speedKPH: 0
+  inputInitialized: 0
   currentPathIndex: 0
   distance: 0
   isBraking: 0
@@ -39127,6 +39128,7 @@ MonoBehaviour:
         m_CallState: 2
   <CurrentLap>k__BackingField: 0
   speedKPH: 0
+  inputInitialized: 0
   currentPathIndex: 0
   distance: 0
   isBraking: 0
@@ -39843,10 +39845,13 @@ MonoBehaviour:
   - {fileID: 1691645565}
   - {fileID: 575340779}
   - {fileID: 1021328331}
-  <TotalLaps>k__BackingField: 3
+  <TotalLaps>k__BackingField: 1
   racePositionInfoStringFormat: <color=#FFCB1E>{0}</color>/{1}
   raceLapInfoStringFormat: <color=#FFFFFF>{0}</color>/{1}
-  matchEventConfig: {fileID: 11400000, guid: 47efed7ddfafad9428cadd1ac3d1b113, type: 2}
+  matchStartedEventConfig: {fileID: 11400000, guid: f03d3b74605d9c64383439c8fd5ef8c9,
+    type: 2}
+  matchCompletionEventConfig: {fileID: 11400000, guid: 47efed7ddfafad9428cadd1ac3d1b113,
+    type: 2}
   onRaceTimeValueChangedEvent:
     m_PersistentCalls:
       m_Calls:
@@ -62647,6 +62652,7 @@ MonoBehaviour:
         m_CallState: 2
   <CurrentLap>k__BackingField: 0
   speedKPH: 0
+  inputInitialized: 0
   currentPathIndex: 0
   distance: 0
   isBraking: 0

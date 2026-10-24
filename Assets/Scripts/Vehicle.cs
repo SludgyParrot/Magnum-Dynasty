@@ -107,6 +107,7 @@ public sealed class Vehicle : MonoBehaviour
 
     private float currentHealth;
 
+    [SerializeField]
     private bool inputInitialized;
 
     [SerializeField]
@@ -272,10 +273,11 @@ public sealed class Vehicle : MonoBehaviour
                     CurrentLap++;
                 else
                 {
-                    if(inputInitialized)
+                    if(PlayerManager.Instance.Player == this)
                     {
-                        RaceManager.Instance.CompleteRace();
+                        RaceManager.Instance.SetMatchStatus(RaceStatus.Completed);
                         inputInitialized = false;
+                        Debug.Log($"~Match Completion Event Sent: Initialized: {inputInitialized}.");
                     }
                 }
             }
@@ -324,45 +326,6 @@ public sealed class Vehicle : MonoBehaviour
         initializeInputs = inputs;
         inputInitialized = true;
     }
-
-    //public void InitializeInputs(bool initialize)
-    //{
-    //    if (inputAction == null) return;
-
-    //    if (initialize)
-    //    {
-    //        inputAction.Enable();
-
-    //        if (accelerationInput != null)
-    //        {
-    //            accelerationInput.action.performed += context => Accelerate(context);
-    //            accelerationInput.action.canceled += context => Accelerate(context, false);
-    //        }
-
-    //        if (brakeInput != null)
-    //        {
-    //            brakeInput.action.performed += context => Brake(context);
-    //            brakeInput.action.canceled += context => Brake(context, false);
-    //        }
-
-    //        if (steerInput != null)
-    //        {
-    //            steerInput.action.performed += context => Steer(context);
-    //            steerInput.action.canceled += context => Steer(context, false);
-    //        }
-
-    //        if (heahLightsInput != null)
-    //        {
-    //            heahLightsInput.action.performed += context => ToggleHeadLights(context);
-    //        }
-    //    }
-    //    else
-    //    {
-
-    //    }
-
-    //    inputInitialized = initialize;
-    //}
 
     public void InitializeInputs(bool initialize)
         => inputInitialized = initialize;
