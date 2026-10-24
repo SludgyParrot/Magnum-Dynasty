@@ -42,9 +42,6 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField, Space(5)]
     private float sensorDetectionSteerSensitivity = 0.5f;
 
-    [field: SerializeField, Space(5)]
-    public bool IsPlayer {  get; private set; }
-
     [SerializeField, Space(5)]
     private InputActionAsset inputAction;
 
@@ -97,6 +94,9 @@ public sealed class Vehicle : MonoBehaviour
     [SerializeField]
     private float speedKPH;
 
+    public float SpeedKPH => speedKPH;
+    public float MaxSpeed => maxSpeed;
+
     private float currentSpeed = 0.0f;
 
     public float CurrentSpeed => currentSpeed;
@@ -106,6 +106,8 @@ public sealed class Vehicle : MonoBehaviour
     private const float SPEED_MULTIPLIER = 3.6f;
 
     private float currentHealth;
+
+    private bool inputInitialized;
 
     [SerializeField]
     private int currentPathIndex;
@@ -134,11 +136,15 @@ public sealed class Vehicle : MonoBehaviour
 
     private AudioSource engineSoundPlayer;
 
+    [SerializeField]
+    private List<EventConfig> initializeInputs =
+        new List<EventConfig>();
+
+    public UnityEvent<ScreenUIEventConfig> OnMisteryBoxAppliedEvent { get; private set; } = 
+        new UnityEvent<ScreenUIEventConfig>();
+
     private void Start()
     {
-        if (IsPlayer)
-            InitializeInputs();
-
         if(pathFinder == null)
             pathFinder = FindObjectOfType<PathFinder>();
 
@@ -154,77 +160,16 @@ public sealed class Vehicle : MonoBehaviour
         onHealthEvent?.Invoke(currentHealth);
     }
 
-    private void InitializeInputs()
-    {
-        if (inputAction == null) return;
-        inputAction.Enable();
-
-        if (accelerationInput != null)
-        {
-            accelerationInput.action.performed += context => Accelerate(context);
-            accelerationInput.action.canceled += context => Accelerate(context, false);
-        }
-
-        if (brakeInput != null)
-        {
-            brakeInput.action.performed += context => Brake(context);
-            brakeInput.action.canceled += context => Brake(context, false);
-        }
-
-        if (steerInput != null)
-        {
-            steerInput.action.performed += context => Steer(context);
-            steerInput.action.canceled += context => Steer(context, false);
-        }
-
-        if(heahLightsInput  != null)
-        {
-            heahLightsInput.action.performed += context => ToggleHeadLights(context);
-        }
-    }
-
-    private void Accelerate(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
-    {
-        if (performed)
-            accelerationInputValue = 1.0f;
-        else
-            accelerationInputValue = 0.0f;
-    }
-
-    private void Brake(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
-    {
-        if (performed)
-            accelerationInputValue = -1.0f;
-        else
-            accelerationInputValue = 0.0f;
-
-        onVehicleLightEvent?.Invoke(VehicleLightType.Brake, performed);
-    }
-
-    private void Steer(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
-    {
-        var input = obj.ReadValue<Vector2>();
-        steeringInput = input.x;
-    }
-
-    private void ToggleHeadLights(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
-    {
-        lightsOn = !lightsOn;
-        onVehicleLightEvent?.Invoke(VehicleLightType.Head, lightsOn);
-    }
-
     private void Update()
     {
         if (currentHealth <= 0) return;
 
-        if (IsPlayer)
+        if (inputInitialized)
         {
             if(speedKPH < maxSpeed)
                 motorTorque = torque * accelerationInputValue;
             else
                 motorTorque = 0.0f;
-
-            EventsManager.Instance.OnSpeedOMeterValueChanged?.Invoke(speedKPH, maxSpeed);
         }
         else
         {
@@ -283,7 +228,7 @@ public sealed class Vehicle : MonoBehaviour
                     wheel.AddBrakeTorque(brakeTorque);
             }
 
-            if (IsPlayer)
+            if (inputInitialized)
                 wheel.Steer(GetSteerAngle());
             else
             {
@@ -327,10 +272,10 @@ public sealed class Vehicle : MonoBehaviour
                     CurrentLap++;
                 else
                 {
-                    if(IsPlayer)
+                    if(inputInitialized)
                     {
                         RaceManager.Instance.CompleteRace();
-                        IsPlayer = false;
+                        inputInitialized = false;
                     }
                 }
             }
@@ -350,6 +295,134 @@ public sealed class Vehicle : MonoBehaviour
         return angle;
     }
 
+    private void PlayEngineSound()
+    {
+        if (gears.Length == 0) return;
+
+        for (int i = 0; i < gears.Length; i++)
+        {
+            if (gears[i].GearSpeed > speedKPH) break;
+
+            float minGearSpeed = 0.0f;
+            float maxGearSpeed = 0.0f;
+
+            if (i == 0)
+                minGearSpeed = 0.0f;
+            else
+                minGearSpeed = gears[i - 1].GearSpeed;
+
+            maxGearSpeed = gears[i].GearSpeed;
+
+            float engineRPM = (currentSpeed - minGearSpeed / (maxGearSpeed - minGearSpeed)) / maxSpeed;
+            engineSoundPlayer.pitch = engineRPM + 1;
+        }
+    }
+
+    public void InitializeInputs(List<EventConfig> inputs)
+    {
+        if(inputs == null || inputs.Count == 0) return;
+        initializeInputs = inputs;
+        inputInitialized = true;
+    }
+
+    //public void InitializeInputs(bool initialize)
+    //{
+    //    if (inputAction == null) return;
+
+    //    if (initialize)
+    //    {
+    //        inputAction.Enable();
+
+    //        if (accelerationInput != null)
+    //        {
+    //            accelerationInput.action.performed += context => Accelerate(context);
+    //            accelerationInput.action.canceled += context => Accelerate(context, false);
+    //        }
+
+    //        if (brakeInput != null)
+    //        {
+    //            brakeInput.action.performed += context => Brake(context);
+    //            brakeInput.action.canceled += context => Brake(context, false);
+    //        }
+
+    //        if (steerInput != null)
+    //        {
+    //            steerInput.action.performed += context => Steer(context);
+    //            steerInput.action.canceled += context => Steer(context, false);
+    //        }
+
+    //        if (heahLightsInput != null)
+    //        {
+    //            heahLightsInput.action.performed += context => ToggleHeadLights(context);
+    //        }
+    //    }
+    //    else
+    //    {
+
+    //    }
+
+    //    inputInitialized = initialize;
+    //}
+
+    public void InitializeInputs(bool initialize)
+        => inputInitialized = initialize;
+
+    public void Accelerate(InputFloatValueEvent inputEvent)
+        => accelerationInputValue = inputEvent.Value;
+
+    public void Brake(InputFloatValueEvent inputEvent)
+    {
+        accelerationInputValue = -inputEvent.Value;
+        onVehicleLightEvent?.Invoke(VehicleLightType.Brake, inputEvent.Value > 0);
+    }
+
+    public void Steer(InputVectorValueEvent inputEvent)
+    {
+        if (inputEvent is InputVectorValueEvent leftAnalogStick)
+        {
+            if (!initializeInputs.Contains(leftAnalogStick) ||
+                leftAnalogStick.Input != InputVector.LeftJoystick) return;
+
+            steeringInput = leftAnalogStick.Value.x;
+        }
+    }
+
+    public void ToggleHeadLights(InputActionEvent inputEvent)
+    {
+        lightsOn = !lightsOn;
+        onVehicleLightEvent?.Invoke(VehicleLightType.Head, lightsOn);
+    }
+
+    public void Accelerate(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
+    {
+        if (performed)
+            accelerationInputValue = 1.0f;
+        else
+            accelerationInputValue = 0.0f;
+    }
+
+    public void Brake(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
+    {
+        if (performed)
+            accelerationInputValue = -1.0f;
+        else
+            accelerationInputValue = 0.0f;
+
+        onVehicleLightEvent?.Invoke(VehicleLightType.Brake, performed);
+    }
+
+    public void Steer(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
+    {
+        var input = obj.ReadValue<Vector2>();
+        steeringInput = input.x;
+    }
+
+    public void ToggleHeadLights(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed = true)
+    {
+        lightsOn = !lightsOn;
+        onVehicleLightEvent?.Invoke(VehicleLightType.Head, lightsOn);
+    }
+
     public Vector3 GetMovingDirection()
         => transform.InverseTransformDirection(CarPhysicsBody.velocity);
 
@@ -363,7 +436,7 @@ public sealed class Vehicle : MonoBehaviour
         isBraking = true;
     }
 
-    public void ApplyMisteryBox(MisteryBoxType type, int value)
+    public void ApplyMisteryBox(MisteryBoxType type, int value, ScreenUIEventConfig eventConfig)
     {
         switch(type)
         {
@@ -374,6 +447,8 @@ public sealed class Vehicle : MonoBehaviour
                 onMachineGunAmmoAppliedEvent?.Invoke(value);
                 break;
         }
+
+        OnMisteryBoxAppliedEvent?.Invoke(eventConfig);
     }
 
     public void TakeDamage(float damage)
@@ -393,7 +468,7 @@ public sealed class Vehicle : MonoBehaviour
 
     public void OnSensorDetection(SensorType sensor, RaycastHit hitInfo)
     {
-        if(IsPlayer) return;
+        if(inputInitialized) return;
 
         avoidingObstacle = false;
 
@@ -450,28 +525,5 @@ public sealed class Vehicle : MonoBehaviour
         }
 
         // Debug.Log($"~On sensor detected: {sensor} and send to vehicle with avoiding: {avoidingObstacle} and sensitivity: {sensorSteerAngle}.");
-    }
-
-    private void PlayEngineSound()
-    {
-        if(gears.Length == 0) return;
-
-        for(int i = 0; i < gears.Length; i++)
-        {
-            if (gears[i].GearSpeed > speedKPH) break;
-
-            float minGearSpeed = 0.0f;
-            float maxGearSpeed = 0.0f;
-
-            if(i == 0)
-                minGearSpeed = 0.0f;
-            else
-                minGearSpeed = gears[i - 1].GearSpeed;
-
-            maxGearSpeed = gears[i].GearSpeed;
-
-            float engineRPM = (currentSpeed - minGearSpeed / (maxGearSpeed - minGearSpeed)) / maxSpeed ;
-            engineSoundPlayer.pitch = engineRPM + 1;
-        }
     }
 }

@@ -67,7 +67,7 @@ public sealed class RaceActionEventPointHandler : MonoBehaviour
     {
         foreach(var vehicle in vehicles)
         {
-            if(vehicle.IsPlayer) continue;
+            if(vehicle == PlayerManager.Instance.Player) continue;
 
             if(racePoint == RacePointType.Brake)
             {
@@ -92,7 +92,7 @@ public sealed class RaceActionEventPointHandler : MonoBehaviour
         {
             case RacePointType.Acceleration:
             case RacePointType.Brake:
-                if(!vehicle.IsPlayer)
+                if(vehicle != PlayerManager.Instance.Player)
                     vehicle.ApplyAcceleration();
                 break;
             case RacePointType.CheckPoint:

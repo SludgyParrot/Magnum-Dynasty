@@ -27,21 +27,25 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
 
     public List<Vehicle> Vehicles => vehicles;
 
-    private Vehicle playerVehicle;
-
-    public Vehicle PlayerVehicle
-    {
-        get
-        {
-            if (playerVehicle == null) 
-                playerVehicle = vehicles.FirstOrDefault(x => x.IsPlayer);
-            return playerVehicle;
-        }
-    }
-
     public bool RaceInProgress { get; private set; }
 
     private float currentRaceTime;
+
+    private Vehicle selectedVehicle;
+
+    private void OnEnable()
+        => EventsManager.Instance.OnTriggeredEvent.AddListener(OnInputEvents);
+
+    private void OnDisable()
+        => EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnInputEvents);
+
+    private void OnInputEvents(EventConfig config)
+    {
+        if (config == null) return;
+
+        if (config is PlayerSelectedVehicleEvent selectedVehicleEvent)
+            selectedVehicle = selectedVehicleEvent.SelectedVehicle;
+    }
 
     private void Start()
     {
@@ -53,10 +57,10 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
 
     private void LateUpdate()
     {
-        if(!RaceInProgress) return;
-        OnRaceTimeUpdate();
+        if(selectedVehicle == null || 
+            !RaceInProgress) return;
 
-        if(PlayerVehicle == null) return;
+        OnRaceTimeUpdate();
         OnUpdateRaceInfo();
     }
 
@@ -68,9 +72,9 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
             return;
         }
 
-        int racePosition = GetRacePosition(PlayerVehicle);
+        int racePosition = GetRacePosition(selectedVehicle);
         var position = string.Format(racePositionInfoStringFormat, racePosition, vehicles.Count);
-        onRaceInfoValueChangedEvent?.Invoke(position, string.Format(raceLapInfoStringFormat, PlayerVehicle.CurrentLap, TotalLaps));
+        onRaceInfoValueChangedEvent?.Invoke(position, string.Format(raceLapInfoStringFormat, selectedVehicle.CurrentLap, TotalLaps));
     }
 
     private void OnRaceTimeUpdate()
@@ -98,9 +102,6 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         });
         return vehicles.IndexOf(vehicle) + 1;
     }
-
-    public void SetPlayerVehicle(Vehicle vehicle)
-        => playerVehicle = vehicle;
 
     public void CompleteRace()
     {

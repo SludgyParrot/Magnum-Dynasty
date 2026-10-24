@@ -4,9 +4,6 @@ using UnityEngine.InputSystem;
 [RequireComponent (typeof(Camera))]
 public sealed class CarCameraController : MonoBehaviour
 {
-    [SerializeField]
-    private Vehicle car;
-
     [SerializeField, Space(5)]
     private float distance, height;
 
@@ -19,33 +16,51 @@ public sealed class CarCameraController : MonoBehaviour
     [SerializeField, Space(5)]
     private float zoomRatio;
 
-    [SerializeField]
-    private InputActionAsset inputAction;
-
-    [SerializeField]
-    private InputActionReference rearViewInput;
-
-    private Camera carCamera;
-
     private Vector3 cameraPositionDelta;
     private Vector3 cameraRotationDelta;
 
     private bool isRearView;
 
-    private void Start()
-    {
-        carCamera = GetComponent<Camera>();
+    private Vehicle selectedVehicle;
 
-        inputAction.Enable();
-        rearViewInput.action.performed += context => RearView(context, true);
-        rearViewInput.action.canceled += context => RearView(context, false);
+    private Camera carViewCamera;
+    private Camera CarViewCamera
+    {
+        get
+        {
+            if (carViewCamera == null)
+                carViewCamera = GetComponent<Camera>();
+            return carViewCamera;
+        }
     }
 
-    private void RearView(UnityEngine.InputSystem.InputAction.CallbackContext obj, bool performed)
+    private void OnEnable()
+        => EventsManager.Instance.OnTriggeredEvent.AddListener(OnInputEvents);
+
+    private void OnDisable()
+        => EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnInputEvents);
+
+    private void OnInputEvents(EventConfig config)
+    {
+        if (config == null) return;
+
+        if(config is PlayerSelectedVehicleEvent selectedVehicleEvent)
+            selectedVehicle = selectedVehicleEvent.SelectedVehicle;
+
+        if (config is InputActionEvent rearViewButton)
+        {
+            if (rearViewButton.Input == InputButton.AButton)
+                RearView(rearViewButton.Performed);
+        }
+    }
+
+    private void RearView(bool performed)
         => isRearView = performed;
 
     private void LateUpdate()
     {
+        if(selectedVehicle ==  null) return;
+
         UpdateCameraPosition();
         UpdateCameraFOV();
     }
@@ -53,7 +68,7 @@ public sealed class CarCameraController : MonoBehaviour
     private void UpdateCameraPosition()
     {
         float carRotationAngle = cameraRotationDelta.y;
-        float carHeight = car.transform.position.y + height;
+        float carHeight = selectedVehicle.transform.position.y + height;
 
         float cameraRotationAngle = transform.eulerAngles.y;
         float cameraHeight = transform.position.y;
@@ -63,7 +78,7 @@ public sealed class CarCameraController : MonoBehaviour
 
         var targetRotation = Quaternion.Euler(0.0f, targetRotationAngle, 0.0f);
 
-        transform.position = car.transform.position;
+        transform.position = selectedVehicle.transform.position;
 
         transform.position -= targetRotation * Vector3.forward * distance;
 
@@ -72,22 +87,22 @@ public sealed class CarCameraController : MonoBehaviour
         cameraPositionDelta.z = transform.position.z;
 
         transform.position = cameraPositionDelta;
-        transform.LookAt(car.transform);
+        transform.LookAt(selectedVehicle.transform);
     }
 
     private void UpdateCameraFOV()
     {
-        var cameraInversedDirection = car.GetMovingDirection();
+        var cameraInversedDirection = selectedVehicle.GetMovingDirection();
 
         if(cameraInversedDirection.z < -0.5f || isRearView)
         {
-            cameraRotationDelta = car.transform.eulerAngles;
+            cameraRotationDelta = selectedVehicle.transform.eulerAngles;
             cameraRotationDelta.y -= 180;
         }
         else
-            cameraRotationDelta = car.transform.eulerAngles;
+            cameraRotationDelta = selectedVehicle.transform.eulerAngles;
 
-        float acceleration = car.CurrentSpeed;
-        carCamera.fieldOfView = cameraFieldOfView + acceleration * zoomRatio;
+        float acceleration = selectedVehicle.CurrentSpeed;
+        CarViewCamera.fieldOfView = cameraFieldOfView + acceleration * zoomRatio;
     }
 }

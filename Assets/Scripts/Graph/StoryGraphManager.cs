@@ -196,6 +196,16 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                 Time.timeScale = gameTime.Time;
                 ExecuteNextGraphNode(node);
                 break;
+            case InitializeInputsNote initializeInputs:
+                PlayerManager.Instance.InitializeInputs(initializeInputs.InputActions);
+                ExecuteNextGraphNode(node);
+                break;
+            case IsFTUENode isFTUE:
+                if(GameManager.Instance.GameData.FTUE)
+                    ExecuteNextGraphNode(node);
+                else
+                    ExecuteNextGraphNode(node, "output2");
+                break;
             case ExitNode exit:
                 if(exit.ExitGraph != null)
                 {

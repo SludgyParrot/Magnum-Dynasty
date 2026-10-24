@@ -20,10 +20,7 @@ public sealed class MisteryBoxHandler : MonoBehaviour
         Vehicle vehicle = other.GetComponent<Vehicle>();
         if (vehicle == null) return;
 
-        vehicle.ApplyMisteryBox(boxType, value);
+        vehicle.ApplyMisteryBox(boxType, value, eventConfig);
         onBoxTriggeredEvent?.Invoke();
-
-        if (vehicle.IsPlayer)
-            EventsManager.Instance.OnTriggeredEvent?.Invoke(eventConfig);
     }
 }

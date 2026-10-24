@@ -3,9 +3,6 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public sealed class BetterCarCameraController : MonoBehaviour
 {
-    [SerializeField]
-    private Vehicle car;
-
     [SerializeField, Space(5)]
     private float distance = 6f;
 
@@ -24,19 +21,56 @@ public sealed class BetterCarCameraController : MonoBehaviour
     [SerializeField]
     private float zoomRatio = 0.5f;
 
-    private Camera carCamera;
-
     private float cameraRotationAngle;
     private float cameraHeight;
 
-    private void Awake()
+    private bool isRearView;
+
+    private Vehicle selectedVehicle;
+
+    private Camera carViewCamera;
+    private Camera CarViewCamera
     {
-        carCamera = GetComponent<Camera>();
+        get
+        {
+            if (carViewCamera == null)
+                carViewCamera = GetComponent<Camera>();
+            return carViewCamera;
+        }
+    }
 
-        cameraRotationAngle = car.transform.eulerAngles.y;
-        cameraHeight = car.transform.position.y + height;
+    private void OnEnable()
+    => EventsManager.Instance.OnTriggeredEvent.AddListener(OnInputEvents);
 
-        Rigidbody rb = car.GetComponent<Rigidbody>();
+    private void OnDisable()
+        => EventsManager.Instance.OnTriggeredEvent.RemoveListener(OnInputEvents);
+
+    private void OnInputEvents(EventConfig config)
+    {
+        if (config == null) return;
+
+        if (config is PlayerSelectedVehicleEvent selectedVehicleEvent)
+        {
+            selectedVehicle = selectedVehicleEvent.SelectedVehicle;
+            InitializeVehicle();
+        }
+
+        if (config is InputActionEvent rearViewButton)
+        {
+            if (rearViewButton.Input == InputButton.AButton)
+                RearView(rearViewButton.Performed);
+        }
+    }
+
+    private void RearView(bool performed)
+        => isRearView = performed;
+
+    private void InitializeVehicle()
+    {
+        cameraRotationAngle = selectedVehicle.transform.eulerAngles.y;
+        cameraHeight = selectedVehicle.transform.position.y + height;
+
+        Rigidbody rb = selectedVehicle.GetComponent<Rigidbody>();
 
         if (rb != null)
             rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -44,15 +78,17 @@ public sealed class BetterCarCameraController : MonoBehaviour
 
     private void LateUpdate()
     {
+        if(selectedVehicle == null) return;
+
         UpdateCameraPosition();
         UpdateCameraFOV();
     }
 
     private void UpdateCameraPosition()
     {
-        Vector3 movingDirection = car.GetMovingDirection();
+        Vector3 movingDirection = selectedVehicle.GetMovingDirection();
 
-        float targetRotationAngle = car.transform.eulerAngles.y;
+        float targetRotationAngle = selectedVehicle.transform.eulerAngles.y;
 
         // Reverse camera direction when car is moving backwards.
         if (movingDirection.z < -0.5f)
@@ -64,7 +100,7 @@ public sealed class BetterCarCameraController : MonoBehaviour
             rotationDamping * Time.deltaTime
         );
 
-        float targetHeight = car.transform.position.y + height;
+        float targetHeight = selectedVehicle.transform.position.y + height;
 
         cameraHeight = Mathf.Lerp(
             cameraHeight,
@@ -79,7 +115,7 @@ public sealed class BetterCarCameraController : MonoBehaviour
         );
 
         Vector3 targetPosition =
-            car.transform.position -
+            selectedVehicle.transform.position -
             rotation * Vector3.forward * distance;
 
         targetPosition.y = cameraHeight;
@@ -87,15 +123,15 @@ public sealed class BetterCarCameraController : MonoBehaviour
         transform.position = targetPosition;
 
         transform.LookAt(
-            car.transform.position + Vector3.up * height * 0.5f
+            selectedVehicle.transform.position + Vector3.up * height * 0.5f
         );
     }
 
     private void UpdateCameraFOV()
     {
-        float speed = Mathf.Abs(car.CurrentSpeed);
+        float speed = Mathf.Abs(selectedVehicle.CurrentSpeed);
 
-        carCamera.fieldOfView =
+        CarViewCamera.fieldOfView =
             cameraFieldOfView +
             speed * zoomRatio;
     }
