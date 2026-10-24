@@ -30,11 +30,14 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
 
     public List<Vehicle> Vehicles => vehicles;
 
-    public bool RaceInProgress { get; private set; }
+    private List<RaceData> raceDataList = 
+        new List<RaceData>();
 
     private float currentRaceTime;
 
     private Vehicle selectedVehicle;
+    public bool RaceInProgress { get; private set; }
+    public string RaceTimeStamp { get; private set; }
 
     private void OnEnable()
         => EventsManager.Instance.OnTriggeredEvent.AddListener(OnInputEvents);
@@ -87,7 +90,20 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         var minutes = Mathf.FloorToInt(currentRaceTime / 60.0f);
         var seconds = Mathf.FloorToInt(currentRaceTime % 60.0f);
         var milliseconds = Mathf.FloorToInt((currentRaceTime * 100.0f) % 100.0f);
-        onRaceTimeValueChangedEvent?.Invoke(string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds));
+        RaceTimeStamp = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        onRaceTimeValueChangedEvent?.Invoke(RaceTimeStamp);
+    }
+
+    private void StartRace()
+    {
+        if (matchStartedEventConfig == null) return;
+        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchStartedEventConfig);
+    }
+
+    private void CompleteRace()
+    {
+        if (matchCompletionEventConfig == null) return;
+        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchCompletionEventConfig);
     }
 
     public int GetRacePosition(Vehicle vehicle)
@@ -106,30 +122,42 @@ public sealed class RaceManager : SingletonInstance<RaceManager>
         return vehicles.IndexOf(vehicle) + 1;
     }
 
-    public void SetMatchStatus(RaceStatus status)
+    public RaceOutcomeStatus GetRaceOutcomeStatus(Vehicle vehicle)
     {
-        switch(status)
+        var racePosition = GetRacePosition(vehicle);
+        return racePosition == 1 ? RaceOutcomeStatus.Won : RaceOutcomeStatus.Lost;
+    }
+
+    public void SetMatchStatus(RaceData data)
+    {
+        if(data == null) return;
+
+        if(data.IsPlayer)
         {
-            case RaceStatus.Started:
-                StartRace();
-                break;
-            case RaceStatus.InProgress:
-                break;
-            case RaceStatus.Completed:
-                CompleteRace();
-                break;
+            switch (data.Status)
+            {
+                case RaceStatus.Started:
+                    StartRace();
+                    break;
+                case RaceStatus.InProgress:
+                    break;
+                case RaceStatus.Completed:
+                    CompleteRace();
+                    break;
+            }
         }
+
+       if(raceDataList.Contains(data)) return;
+       raceDataList.Add(data);
     }
 
-    private void StartRace()
+    public (RaceData data, string errorMessage) GetPlayerRaceData()
     {
-        if (matchStartedEventConfig == null) return;
-        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchStartedEventConfig);
+        RaceData data = raceDataList.FirstOrDefault(x => x.IsPlayer);
+        string errorMessage = data == null? $"{data} was not found in {nameof(raceDataList)} for: {gameObject.name}" : string.Empty;
+        return (data, errorMessage);
     }
 
-    private void CompleteRace()
-    {
-        if (matchCompletionEventConfig == null) return;
-        EventsManager.Instance.OnTriggeredEvent?.Invoke(matchCompletionEventConfig);
-    }
+    public void ClearRaceData()
+        => raceDataList.Clear();
 }

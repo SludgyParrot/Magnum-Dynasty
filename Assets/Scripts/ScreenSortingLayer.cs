@@ -177,3 +177,10 @@ public enum RaceStatus
     InProgress,
     Completed
 }
+
+public enum RaceOutcomeStatus
+{
+    Unavailable,
+    Lost,
+    Won
+}

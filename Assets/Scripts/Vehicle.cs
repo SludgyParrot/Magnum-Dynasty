@@ -273,12 +273,18 @@ public sealed class Vehicle : MonoBehaviour
                     CurrentLap++;
                 else
                 {
-                    if(PlayerManager.Instance.Player == this)
+                    RaceData raceData = new RaceData(ProfileManager.Instance.SelectedProfile.ProfileName,
+                          RaceManager.Instance.GetRacePosition(this), RaceManager.Instance.RaceTimeStamp,
+                          RaceStatus.Completed, RaceManager.Instance.GetRaceOutcomeStatus(this));
+
+                    if (PlayerManager.Instance.Player == this)
                     {
-                        RaceManager.Instance.SetMatchStatus(RaceStatus.Completed);
+                        raceData.SetIsPlayer(true);
+                        RaceManager.Instance.SetMatchStatus(raceData);
                         inputInitialized = false;
-                        Debug.Log($"~Match Completion Event Sent: Initialized: {inputInitialized}.");
                     }
+                    else
+                        RaceManager.Instance.SetMatchStatus(raceData);
                 }
             }
 

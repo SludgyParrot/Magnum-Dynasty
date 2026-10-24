@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -205,6 +206,18 @@ public sealed class StoryGraphManager : SingletonInstance<StoryGraphManager>
                     ExecuteNextGraphNode(node, isFTUE.PrimaryOutputPortName);
                 else
                     ExecuteNextGraphNode(node, isFTUE.SecondaryOutputPortName);
+                break;
+            case IsMatchWonNode isMatchWon:
+                var matchDataResults = RaceManager.Instance.GetPlayerRaceData();
+                if (string.IsNullOrWhiteSpace(matchDataResults.errorMessage))
+                {
+                    if(matchDataResults.data.Outcome == RaceOutcomeStatus.Won)
+                        ExecuteNextGraphNode(node, isMatchWon.PrimaryOutputPortName);
+                    else
+                        ExecuteNextGraphNode(node, isMatchWon.SecondaryOutputPortName);
+                }
+                else
+                    Debug.LogError(matchDataResults.errorMessage);
                 break;
             case ExitNode exit:
                 if(exit.ExitGraph != null)
